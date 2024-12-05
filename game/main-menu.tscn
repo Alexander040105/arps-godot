@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://wroa3umjsenr"]
+
+[ext_resource type="Texture2D" uid="uid://c0nndmousr2ei" path="res://backgroundd/2nd Page.png" id="1_7wkkq"]
+[ext_resource type="Texture2D" uid="uid://dnd1ixfsmr1o8" path="res://buttons/(No BG) Logo.png" id="2_141yh"]
+[ext_resource type="Texture2D" uid="uid://pnuho56hg2au" path="res://buttons/(No BG) Start Button.png" id="3_3mdkx"]
+[ext_resource type="Texture2D" uid="uid://bkg7if2xlwo2m" path="res://buttons/(Hover) Start Button.png" id="4_hsi6x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1oj7"]
+bg_color = Color(0.0100903, 0.0100903, 0.0100903, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iq1j2"]
+texture = ExtResource("1_7wkkq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esgno"]
+texture = ExtResource("2_141yh")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bglayer1" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a1oj7")
+
+[node name="bglayer2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iq1j2")
+
+[node name="arpsLogo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_esgno")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 156.0
+offset_right = 216.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_3mdkx")
+texture_pressed = ExtResource("4_hsi6x")
+texture_hover = ExtResource("4_hsi6x")
