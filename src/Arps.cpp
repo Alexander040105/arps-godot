@@ -74,20 +74,113 @@ void Arps::showChoice(char choice){           // May or may not be necessary in 
 void Arps::chooseWinner() {
     if (playerChoice == computerChoice) {
         UtilityFunctions::print("It's a tie!");
-    } else if   ((playerChoice == 'r' && computerChoice == 's') ||
-                (playerChoice == 'r' && computerChoice == 'f') ||
-                (playerChoice == 'r' && computerChoice == 'n') ||
-                (playerChoice == 'r' && computerChoice == 'h') ||
-                (playerChoice == 'r' && computerChoice == 't') ||
-                (playerChoice == 'r' && computerChoice == 'l') ||
-                (playerChoice == 'r' && computerChoice == 'o') ||
 
-                (playerChoice == 'p' && computerChoice == 'r') ||
-                (playerChoice == 's' && computerChoice == 'p')) {
-        UtilityFunctions::print("You win!");
-    } else {
-        UtilityFunctions::print("You lose!");
+    //Rock
+    } else if (playerChoice == 'r') { 
+        if(computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    } 
+    //Fire
+    else if (playerChoice == 'f') { 
+        if(computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p'  ) {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
     }
+    //Scissors
+    else if (playerChoice == 's') { 
+        if(computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Snake
+    else if (playerChoice == 'n') { 
+        if(computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Human
+    else if (playerChoice == 'h') { 
+        if(computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Tree
+    else if (playerChoice == 't') { 
+        if(computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Wolf
+    else if (playerChoice == 'l') { 
+        if(computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Sponge
+    else if (playerChoice == 'o') { 
+        if(computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Paper
+    else if (playerChoice == 'p') { 
+        if(computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Air
+    else if (playerChoice == 'a') { 
+        if(computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Water
+    else if (playerChoice == 'w') { 
+        if(computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' ) {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Dragon
+    else if (playerChoice == 'd') { 
+        if(computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' ) {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Devil
+    else if (playerChoice == 'e') { 
+        if(computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' ) {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Devil
+    else if (playerChoice == 'i') { 
+        if(computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    //Gun
+    else if (playerChoice == 'g') { 
+        if(computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l') {
+            UtilityFunctions::print("You win!");
+        }
+        else {UtilityFunctions::print("You lose!");}
+    }
+    
 }
 
 void Game::start_game(const String &choice) {
