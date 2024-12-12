@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bc22mvwuvft1k"]
+[gd_scene load_steps=31 format=3 uid="uid://bc22mvwuvft1k"]
 
 [ext_resource type="Texture2D" uid="uid://dcfxx1lbxab7k" path="res://gameplayAnimation/(No BG) Gameplay Start #1.1.png" id="1_0w8yb"]
 [ext_resource type="Texture2D" uid="uid://cu7mqjvwtxjk7" path="res://gameplayAnimation/7th Page UI.png" id="1_au1rq"]
@@ -9,19 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://dbtxkqyf3ucvh" path="res://GAME BUTTONS/ROCK(DEFAULT).png" id="7_iwmrq"]
 [ext_resource type="Texture2D" uid="uid://cmm6n7ltcjx2t" path="res://GAME BUTTONS/ROCK(HOVER).png" id="8_hh7fb"]
 [ext_resource type="Script" path="res://gameplay.gd" id="8_nenia"]
+[ext_resource type="Texture2D" uid="uid://c3s5n22h0sfgp" path="res://GAME BUTTONS/ROCK(HOVER)2.png" id="9_hmq3q"]
 [ext_resource type="Texture2D" uid="uid://bloxokocxesd8" path="res://GAME BUTTONS/SCISSORS(DEFAULT).png" id="10_6ajhj"]
-[ext_resource type="Texture2D" uid="uid://d37urw6keer6m" path="res://GAME BUTTONS/SCISSORS(HOVER).png" id="11_ai3qa"]
 [ext_resource type="Texture2D" uid="uid://4wj3nsdahxje" path="res://GAME BUTTONS/PAPER(PLACEHOLDER).png" id="11_bo4ig"]
+[ext_resource type="Texture2D" uid="uid://dfp748sg5iqni" path="res://GAME BUTTONS/SCISSORS(HOVER)2.png" id="12_oorm1"]
 [ext_resource type="Texture2D" uid="uid://c8ydarhy1lt53" path="res://GAME BUTTONS/WATER(DEFAULT).png" id="12_rftqh"]
 [ext_resource type="Texture2D" uid="uid://n80vbsb35cxm" path="res://GAME BUTTONS/WATER(HOVER).png" id="13_x4d6t"]
 [ext_resource type="Texture2D" uid="uid://dcg4iuicb0att" path="res://GAME BUTTONS/WIND(DEFAULT).png" id="14_2macd"]
-[ext_resource type="Texture2D" uid="uid://cx6n1s6ojwjda" path="res://GAME BUTTONS/WIND(HOVER).png" id="15_3d1mg"]
+[ext_resource type="Texture2D" uid="uid://b0iivlv80t5jf" path="res://GAME BUTTONS/WATER(HOVER)2.png" id="15_ciw5e"]
 [ext_resource type="Texture2D" uid="uid://dj3dvyota7lb1" path="res://GAME BUTTONS/FIRE(DEFAULT).png" id="16_knkpm"]
-[ext_resource type="Texture2D" uid="uid://cdo8clopr8it8" path="res://GAME BUTTONS/FIRE(HOVER).png" id="17_ymsep"]
+[ext_resource type="Texture2D" uid="uid://ceykk01wdy0vd" path="res://GAME BUTTONS/WIND(HOVER)2.png" id="17_iklsa"]
 [ext_resource type="Texture2D" uid="uid://delt0ktkcgcf5" path="res://GAME BUTTONS/ELECTRIC(DEFAULT).png" id="18_3yh51"]
-[ext_resource type="Texture2D" uid="uid://by7l34akk04ks" path="res://GAME BUTTONS/ELECTRIC(HOVER).png" id="19_416rr"]
+[ext_resource type="Texture2D" uid="uid://c66vtpiqmsweg" path="res://GAME BUTTONS/FIRE(HOVER)2.png" id="19_6mku0"]
 [ext_resource type="Texture2D" uid="uid://qub738hpxa6f" path="res://GAME BUTTONS/DEVIL(DEFAULT).png" id="20_5twku"]
-[ext_resource type="Texture2D" uid="uid://c7x51w10oyr6y" path="res://GAME BUTTONS/DEVIL(HOVER).png" id="21_hd53q"]
+[ext_resource type="Texture2D" uid="uid://bp13cy6xm4sua" path="res://GAME BUTTONS/ELECTRIC(HOVER)2.png" id="21_yws5l"]
+[ext_resource type="Texture2D" uid="uid://dnpbhxapvsl75" path="res://GAME BUTTONS/DEVIL(HOVER)2.png" id="23_v5k2x"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoke"]
 texture = ExtResource("1_au1rq")
@@ -124,14 +126,14 @@ size_flags_stretch_ratio = 2.0
 layout_mode = 2
 texture_normal = ExtResource("7_iwmrq")
 texture_pressed = ExtResource("8_hh7fb")
-texture_hover = ExtResource("8_hh7fb")
+texture_hover = ExtResource("9_hmq3q")
 script = ExtResource("8_nenia")
 
 [node name="Scissors" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("10_6ajhj")
-texture_pressed = ExtResource("11_ai3qa")
-texture_hover = ExtResource("11_ai3qa")
+texture_pressed = ExtResource("12_oorm1")
+texture_hover = ExtResource("12_oorm1")
 script = ExtResource("8_nenia")
 
 [node name="Paper" type="TextureButton" parent="HBoxContainer"]
@@ -142,36 +144,36 @@ script = ExtResource("8_nenia")
 [node name="Water" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("12_rftqh")
-texture_pressed = ExtResource("13_x4d6t")
-texture_hover = ExtResource("13_x4d6t")
+texture_pressed = ExtResource("15_ciw5e")
+texture_hover = ExtResource("15_ciw5e")
 script = ExtResource("8_nenia")
 
 [node name="Air" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("14_2macd")
-texture_pressed = ExtResource("15_3d1mg")
-texture_hover = ExtResource("15_3d1mg")
+texture_pressed = ExtResource("17_iklsa")
+texture_hover = ExtResource("17_iklsa")
 script = ExtResource("8_nenia")
 
 [node name="Fire" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("16_knkpm")
-texture_pressed = ExtResource("17_ymsep")
-texture_hover = ExtResource("17_ymsep")
+texture_pressed = ExtResource("19_6mku0")
+texture_hover = ExtResource("19_6mku0")
 script = ExtResource("8_nenia")
 
 [node name="Lightning" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("18_3yh51")
-texture_pressed = ExtResource("19_416rr")
-texture_hover = ExtResource("19_416rr")
+texture_pressed = ExtResource("21_yws5l")
+texture_hover = ExtResource("21_yws5l")
 script = ExtResource("8_nenia")
 
 [node name="Devil" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("20_5twku")
-texture_pressed = ExtResource("21_hd53q")
-texture_hover = ExtResource("21_hd53q")
+texture_pressed = ExtResource("23_v5k2x")
+texture_hover = ExtResource("23_v5k2x")
 script = ExtResource("8_nenia")
 
 [node name="Dragon" type="TextureButton" parent="HBoxContainer"]
