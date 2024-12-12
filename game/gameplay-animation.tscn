@@ -1,0 +1,193 @@
+[gd_scene load_steps=31 format=3 uid="uid://bc22mvwuvft1k"]
+
+[ext_resource type="Texture2D" uid="uid://dcfxx1lbxab7k" path="res://gameplayAnimation/(No BG) Gameplay Start #1.1.png" id="1_0w8yb"]
+[ext_resource type="Texture2D" uid="uid://cu7mqjvwtxjk7" path="res://gameplayAnimation/7th Page UI.png" id="1_au1rq"]
+[ext_resource type="Texture2D" uid="uid://ca457ryd3vf2d" path="res://gameplayAnimation/(No BG) Gameplay.png" id="2_qrxww"]
+[ext_resource type="Texture2D" uid="uid://w42i3ini78fh" path="res://gameplayAnimation/(No BG) Gameplay Start #2.1.png" id="2_ru8ir"]
+[ext_resource type="Texture2D" uid="uid://5tv8ktx2h1mp" path="res://gameplayAnimation/(No BG) Gameplay Start #1.png" id="3_hpyoj"]
+[ext_resource type="Texture2D" uid="uid://br1i4gtiejure" path="res://gameplayAnimation/(No BG) Gameplay Start #2.png" id="4_m5ir7"]
+[ext_resource type="Texture2D" uid="uid://dbtxkqyf3ucvh" path="res://GAME BUTTONS/ROCK(DEFAULT).png" id="7_iwmrq"]
+[ext_resource type="Texture2D" uid="uid://cmm6n7ltcjx2t" path="res://GAME BUTTONS/ROCK(HOVER).png" id="8_hh7fb"]
+[ext_resource type="Script" path="res://gameplay.gd" id="8_nenia"]
+[ext_resource type="Texture2D" uid="uid://c3s5n22h0sfgp" path="res://GAME BUTTONS/ROCK(HOVER)2.png" id="9_hmq3q"]
+[ext_resource type="Texture2D" uid="uid://bloxokocxesd8" path="res://GAME BUTTONS/SCISSORS(DEFAULT).png" id="10_6ajhj"]
+[ext_resource type="Texture2D" uid="uid://4wj3nsdahxje" path="res://GAME BUTTONS/PAPER(PLACEHOLDER).png" id="11_bo4ig"]
+[ext_resource type="Texture2D" uid="uid://dfp748sg5iqni" path="res://GAME BUTTONS/SCISSORS(HOVER)2.png" id="12_oorm1"]
+[ext_resource type="Texture2D" uid="uid://c8ydarhy1lt53" path="res://GAME BUTTONS/WATER(DEFAULT).png" id="12_rftqh"]
+[ext_resource type="Texture2D" uid="uid://n80vbsb35cxm" path="res://GAME BUTTONS/WATER(HOVER).png" id="13_x4d6t"]
+[ext_resource type="Texture2D" uid="uid://dcg4iuicb0att" path="res://GAME BUTTONS/WIND(DEFAULT).png" id="14_2macd"]
+[ext_resource type="Texture2D" uid="uid://b0iivlv80t5jf" path="res://GAME BUTTONS/WATER(HOVER)2.png" id="15_ciw5e"]
+[ext_resource type="Texture2D" uid="uid://dj3dvyota7lb1" path="res://GAME BUTTONS/FIRE(DEFAULT).png" id="16_knkpm"]
+[ext_resource type="Texture2D" uid="uid://ceykk01wdy0vd" path="res://GAME BUTTONS/WIND(HOVER)2.png" id="17_iklsa"]
+[ext_resource type="Texture2D" uid="uid://delt0ktkcgcf5" path="res://GAME BUTTONS/ELECTRIC(DEFAULT).png" id="18_3yh51"]
+[ext_resource type="Texture2D" uid="uid://c66vtpiqmsweg" path="res://GAME BUTTONS/FIRE(HOVER)2.png" id="19_6mku0"]
+[ext_resource type="Texture2D" uid="uid://qub738hpxa6f" path="res://GAME BUTTONS/DEVIL(DEFAULT).png" id="20_5twku"]
+[ext_resource type="Texture2D" uid="uid://bp13cy6xm4sua" path="res://GAME BUTTONS/ELECTRIC(HOVER)2.png" id="21_yws5l"]
+[ext_resource type="Texture2D" uid="uid://dnpbhxapvsl75" path="res://GAME BUTTONS/DEVIL(HOVER)2.png" id="23_v5k2x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoke"]
+texture = ExtResource("1_au1rq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy175"]
+texture = ExtResource("2_qrxww")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8cena"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hpyoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m5ir7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6xda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_80xov"]
+resource_name = "initial_bato_pick"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7341t"]
+_data = {
+"initial_bato_pick": SubResource("Animation_80xov")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ui" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1152.0
+offset_bottom = 647.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5hoke")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 647.0
+
+[node name="bg1" type="Panel" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
+
+[node name="WithBackground" type="AnimatedSprite2D" parent="VBoxContainer"]
+visible = false
+position = Vector2(576, 323.5)
+scale = Vector2(0.342857, 0.342328)
+sprite_frames = SubResource("SpriteFrames_8cena")
+frame_progress = 0.707151
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
+visible = false
+position = Vector2(576, 323.5)
+scale = Vector2(0.342857, 0.342328)
+sprite_frames = SubResource("SpriteFrames_l6xda")
+frame_progress = 0.971052
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_7341t")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 43.0
+offset_top = 427.0
+offset_right = 1227.0
+offset_bottom = 555.0
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Rock" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_iwmrq")
+texture_pressed = ExtResource("8_hh7fb")
+texture_hover = ExtResource("9_hmq3q")
+script = ExtResource("8_nenia")
+
+[node name="Scissors" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_6ajhj")
+texture_pressed = ExtResource("12_oorm1")
+texture_hover = ExtResource("12_oorm1")
+script = ExtResource("8_nenia")
+
+[node name="Paper" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_bo4ig")
+script = ExtResource("8_nenia")
+
+[node name="Water" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_rftqh")
+texture_pressed = ExtResource("15_ciw5e")
+texture_hover = ExtResource("15_ciw5e")
+script = ExtResource("8_nenia")
+
+[node name="Air" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_2macd")
+texture_pressed = ExtResource("17_iklsa")
+texture_hover = ExtResource("17_iklsa")
+script = ExtResource("8_nenia")
+
+[node name="Fire" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_knkpm")
+texture_pressed = ExtResource("19_6mku0")
+texture_hover = ExtResource("19_6mku0")
+script = ExtResource("8_nenia")
+
+[node name="Lightning" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("18_3yh51")
+texture_pressed = ExtResource("21_yws5l")
+texture_hover = ExtResource("21_yws5l")
+script = ExtResource("8_nenia")
+
+[node name="Devil" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("20_5twku")
+texture_pressed = ExtResource("23_v5k2x")
+texture_hover = ExtResource("23_v5k2x")
+script = ExtResource("8_nenia")
+
+[node name="Dragon" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_rftqh")
+texture_pressed = ExtResource("13_x4d6t")
+script = ExtResource("8_nenia")
+
+[connection signal="pressed" from="HBoxContainer/Rock" to="HBoxContainer/Rock" method="_on_rock_pressed"]
+[connection signal="pressed" from="HBoxContainer/Scissors" to="HBoxContainer/Rock" method="_on_scissors_pressed"]
+[connection signal="pressed" from="HBoxContainer/Paper" to="HBoxContainer/Rock" method="_on_paper_pressed"]
+[connection signal="pressed" from="HBoxContainer/Water" to="HBoxContainer/Rock" method="_on_water_pressed"]
+[connection signal="pressed" from="HBoxContainer/Air" to="HBoxContainer/Rock" method="_on_wind_pressed"]
+[connection signal="pressed" from="HBoxContainer/Fire" to="HBoxContainer/Rock" method="_on_fire_pressed"]
+[connection signal="pressed" from="HBoxContainer/Lightning" to="HBoxContainer/Rock" method="_on_electric_pressed"]
+[connection signal="pressed" from="HBoxContainer/Devil" to="HBoxContainer/Rock" method="_on_devil_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dragon" to="HBoxContainer/Rock" method="_on_dragon_pressed"]
