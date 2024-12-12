@@ -7,6 +7,11 @@ func _ready() -> void:
 	summator.add(3)
 	summator.add(4)
 	print(summator.get_total())
+	
+	
+	
+	
+	
 
 
 # Called every rame. 'delta' is the elapsed time since the previous frame.
