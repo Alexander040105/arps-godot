@@ -1,52 +1,25 @@
 #include "Arps.h"
 #include <godot_cpp/core/class_db.hpp>
+#include <cstdlib>
 #include <ctime>
 
 void Arps::_bind_methods(){
-    ClassDB::bind_method(D_METHOD("add", "value"), &Arps::add);
-    ClassDB::bind_method(D_METHOD("reset"), &Arps::reset);
-    ClassDB::bind_method(D_METHOD("get_total"), &Arps::get_total);
+    ClassDB::bind_method(D_METHOD("start_game", "choice"), &Game::start_game);
 }
 
-char Arps::getUserChoice(){
-    char player;
-	std::cout << "Rock-Paper-Scissors Game!\n";             // Placeholder
-
-	do {                                                    // Placeholder, should be onscreen button presses not keyboard input
-		std::cout << "Choose one of the following\n";
-		std::cout << "*************************\n";
-		std::cout << "'r' for rock\n";                      
-		std::cout << "'p' for paper\n";
-		std::cout << "'s' for scissors\n";
-
-		std::cout << "'f' for fire\n";
-		std::cout << "'n' for snake\n";
-		std::cout << "'h' for human\n";
-
-		std::cout << "'t' for tree\n";
-		std::cout << "'l' for wolf\n";
-		std::cout << "'o' for sponge\n";
-
-		std::cout << "'a' for air\n";
-		std::cout << "'w' for water\n";
-		std::cout << "'d' for dragon\n";
-        
-		std::cout << "'e' for devil\n";
-		std::cout << "'i' for lightning\n";
-		std::cout << "'g' for gun\n";
-		std::cin >> player;
-	} while(player != 'r' && player != 'p' && player != 's'
-        && player != 'f' && player != 'n' && player != 'h'
-        && player != 't' && player != 'l' && player != 'o'
-        && player != 'a' && player != 'w' && player != 'd'
-        && player != 'e' && player != 'i' && player != 'g'
-    );
-
-	return player;    
+Arps::Arps() {
+    std::srand(std::time(nullptr)); // Initialize random seed
 }
+
+Arps::~Arps() {}
+
+char Arps::getUserChoice(const String &choice){
+    // Convert Godot string input to char
+    return choice.utf8().get_data()[0];    
+}
+
 char Arps::getComputerChoice(){
-    srand(time(0));                     // We use time to generate a pseudo random choice
-	int num = rand() % 15 + 1;           // Stores a num from 1-15. TODO: change accordingly
+    int num = std::rand() % 15; // Generate a number between 0 and 14
 
 	switch(num){                        // Note that the Comp choice is a num, not r p or s; case should be num
         // TODO: Increase number of cases for each choice
@@ -70,243 +43,61 @@ char Arps::getComputerChoice(){
 		case 14: return 'i';
 		case 15: return 'g';
 	}
-	return 0;
+	return 'r';         // Default is rock just in case
 }
+
 
 void Arps::showChoice(char choice){           // May or may not be necessary in final, very temp
 	switch(choice){
-		case 'r': std::cout << "Rock\n";
-		break;
-		case 'p': std::cout << "Paper\n";
-		break;
-		case 's': std::cout << "Scissors\n";
-		break;
+		case 'r': UtilityFunctions::print("Rock"); break;
+		case 'p': UtilityFunctions::print("Paper"); break;
+        case 's': UtilityFunctions::print("Scissors"); break;
 
-        case 'f': std::cout << "Fire\n";
-		break;
-		case 'n': std::cout << "Snake\n";
-		break;
-		case 'h': std::cout << "Human\n";
-		break;
+        case 'f': UtilityFunctions::print("Fire"); break;
+		case 'n': UtilityFunctions::print("Snake"); break;
+		case 'h': UtilityFunctions::print("Human"); break;
 
-        case 't': std::cout << "Tree\n";
-		break;
-		case 'l': std::cout << "Wolf\n";
-		break;
-		case 'o': std::cout << "Sponge\n";
-		break;
+        case 't': UtilityFunctions::print("Tree"); break;
+		case 'l': UtilityFunctions::print("Wolf"); break;
+		case 'o': UtilityFunctions::print("Sponge"); break;
 
-        case 'a': std::cout << "Air\n";
-		break;
-		case 'w': std::cout << "Water\n";
-		break;
-		case 'd': std::cout << "Dragon\n";
-		break;
+        case 'a': UtilityFunctions::print("Air"); break;
+		case 'w': UtilityFunctions::print("Water"); break;
+		case 'd': UtilityFunctions::print("Dragon"); break;
 
-        case 'e': std::cout << "Devil\n";
-		break;
-		case 'i': std::cout << "Lightning\n";
-		break;
-		case 'g': std::cout << "Gun\n";
-		break;
+        case 'e': UtilityFunctions::print("Devil"); break;
+		case 'i': UtilityFunctions::print("Lightning"); break;
+		case 'g': UtilityFunctions::print("Gun"); break;
 	}
 }
 
-void Arps::chooseWinner(char player, char computer) const{
-    switch(player){
-        //rock
-		case 'r': 	
-            if(computer == 'r'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'p' || computer == 'a' || computer == 'w'
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'f' || computer == 's' || computer == 'n' 
-                || computer == 'h' || computer == 't' || computer == 'l' || computer == 'o'){
-                std::cout << "You win!\n";
-            }
-			break;
+void Arps::chooseWinner() {
+    if (playerChoice == computerChoice) {
+        UtilityFunctions::print("It's a tie!");
+    } else if   ((playerChoice == 'r' && computerChoice == 's') ||
+                (playerChoice == 'r' && computerChoice == 'f') ||
+                (playerChoice == 'r' && computerChoice == 'n') ||
+                (playerChoice == 'r' && computerChoice == 'h') ||
+                (playerChoice == 'r' && computerChoice == 't') ||
+                (playerChoice == 'r' && computerChoice == 'l') ||
+                (playerChoice == 'r' && computerChoice == 'o') ||
 
-        //fire
-		case 'f': 	
-            if(computer == 'f'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'r' || computer == 'a' || computer == 'w'
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'p' || computer == 's' || computer == 'n' 
-                || computer == 'h' || computer == 't' || computer == 'l' || computer == 'o'){
-                std::cout << "You win!\n";
-            }
-			break;
+                (playerChoice == 'p' && computerChoice == 'r') ||
+                (playerChoice == 's' && computerChoice == 'p')) {
+        UtilityFunctions::print("You win!");
+    } else {
+        UtilityFunctions::print("You lose!");
+    }
+}
 
-        //scissors
-		case 's': 	
-            if(computer == 's'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'r' || computer == 'f' || computer == 'w'
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'p' || computer == 'a' || computer == 'n' 
-                || computer == 'h' || computer == 't' || computer == 'l' || computer == 'o'){
-                std::cout << "You win!\n";
-            }
-			break;
+void Game::start_game(const String &choice) {
+    player_choice = get_user_choice(choice);
+    UtilityFunctions::print("Player choice:");
+    show_choice(player_choice);
 
-        //snake
-		case 'n': 	
-            if(computer == 'n'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'r' || computer == 'f' || computer == 's'
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'p' || computer == 'a' || computer == 'w' 
-                || computer == 'h' || computer == 't' || computer == 'l' || computer == 'o'){
-                std::cout << "You win!\n";
-            }
-			break;
+    computer_choice = get_computer_choice();
+    UtilityFunctions::print("Computer choice:");
+    show_choice(computer_choice);
 
-		//human
-		case 'h': 	
-            if(computer == 'h'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'r' || computer == 'f' || computer == 's'
-                || computer == 'n' || computer == 'e' || computer == 'i' || computer == 'g') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'p' || computer == 'a' || computer == 'w' 
-                || computer == 'd' || computer == 't' || computer == 'l' || computer == 'o'){
-                std::cout << "You win!\n";
-            }
-			break;
-
-		//tree
-		case 't': 	
-            if(computer == 't'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'r' || computer == 'f' || computer == 's'
-                || computer == 'n' || computer == 'h' || computer == 'i' || computer == 'g') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'p' || computer == 'a' || computer == 'w' 
-                || computer == 'd' || computer == 'e' || computer == 'l' || computer == 'o'){
-                std::cout << "You win!\n";
-            }
-			break;
-
-		//wolf
-		case 'l': 	
-            if(computer == 'l'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'r' || computer == 'f' || computer == 's'
-                || computer == 'n' || computer == 'h' || computer == 't' || computer == 'g') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'p' || computer == 'a' || computer == 'w' 
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'o'){
-                std::cout << "You win!\n";
-            }
-			break;
-
-		//sponge
-		case 'o': 	
-            if(computer == 'o'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'r' || computer == 'f' || computer == 's'
-                || computer == 'n' || computer == 'h' || computer == 't' || computer == 'l') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'p' || computer == 'a' || computer == 'w' 
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g'){
-                std::cout << "You win!\n";
-            }
-			break;
-
-		//sponge
-		case 'p': 	
-            if(computer == 'p'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'o' || computer == 'f' || computer == 's'
-                || computer == 'n' || computer == 'h' || computer == 't' || computer == 'l') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'r' || computer == 'a' || computer == 'w' 
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g'){
-                std::cout << "You win!\n";
-            }
-			break;
-		
-		//air
-		case 'a': 	
-            if(computer == 'a'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'o' || computer == 'p' || computer == 's'
-                || computer == 'n' || computer == 'h' || computer == 't' || computer == 'l') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'r' || computer == 'f' || computer == 'w' 
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g'){
-                std::cout << "You win!\n";
-            }
-			break;
-
-		//water
-		case 'w': 	
-            if(computer == 'w'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'o' || computer == 'p' || computer == 'a'
-                || computer == 'n' || computer == 'h' || computer == 't' || computer == 'l') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'r' || computer == 'f' || computer == 's' 
-                || computer == 'd' || computer == 'e' || computer == 'i' || computer == 'g'){
-                std::cout << "You win!\n";
-            }
-			break;
-
-		//dragon
-		case 'd': 	
-            if(computer == 'd'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'o' || computer == 'p' || computer == 'a'
-                || computer == 'w' || computer == 'h' || computer == 't' || computer == 'l') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'r' || computer == 'f' || computer == 's' 
-                || computer == 'n' || computer == 'e' || computer == 'i' || computer == 'g'){
-                std::cout << "You win!\n";
-            }
-			break;
-		
-		//devil
-		case 'e': 	
-            if(computer == 'e'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'o' || computer == 'p' || computer == 'a'
-                || computer == 'w' || computer == 'd' || computer == 't' || computer == 'l') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'r' || computer == 'f' || computer == 's' 
-                || computer == 'n' || computer == 'h' || computer == 'i' || computer == 'g'){
-                std::cout << "You win!\n";
-            }
-			break;
-		
-		//lightning
-		case 'i': 	
-            if(computer == 'i'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'o' || computer == 'p' || computer == 'a'
-                || computer == 'w' || computer == 'd' || computer == 'e' || computer == 'l') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'r' || computer == 'f' || computer == 's' 
-                || computer == 'n' || computer == 'h' || computer == 't' || computer == 'g'){
-                std::cout << "You win!\n";
-            }
-			break;
-
-		//gun
-		case 'g': 	
-            if(computer == 'g'){
-                std::cout << "It's a tie!\n";
-            } else if (computer == 'o' || computer == 'p' || computer == 'a'
-                || computer == 'w' || computer == 'd' || computer == 'e' || computer == 'i') {
-                std::cout << "You lose!\n";
-            } else if(computer == 'r' || computer == 'f' || computer == 's' 
-                || computer == 'n' || computer == 'h' || computer == 't' || computer == 'l'){
-                std::cout << "You win!\n";
-            }
-			break;
-	}
+    choose_winner();
 }

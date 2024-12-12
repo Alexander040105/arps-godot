@@ -6,14 +6,21 @@ using namespace godot;
 class Arps : public Object{
     GDCLASS(Arps, Object);
 
-    int count;
-
 protected: 
-    static void _bind_methods();    // Dont change
+    static void _bind_methods();
 
-public:
-    char getUserChoice();
+private:
+    char playerChoice;
+    char computerChoice;
+
+    char getUserChoice(const String &choice);
     char getComputerChoice();                           
     void showChoice(char choice);                       
-    void chooseWinner(char player, char computer);
-}
+    void chooseWinner();
+
+public:
+    Arps();
+    ~Arps();
+
+    void start_game(const String &choice);  // Just for printing to terminal
+};
