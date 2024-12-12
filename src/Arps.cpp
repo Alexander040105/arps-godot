@@ -18,25 +18,25 @@ String Arps::getComputerChoice(){
     int num = std::rand() % 15; // Generate a number between 0 and 14
 
 	switch(num){                      
-		case 1: return String::chr('r');
-		case 2: return String::chr('p');
-		case 3: return String::chr('s');
+		case 0: return String::chr('r');
+		case 1: return String::chr('p');
+		case 2: return String::chr('s');
 
-        case 4: return String::chr('f');
-		case 5: return String::chr('n');
-		case 6: return String::chr('h');
+        case 3: return String::chr('f');
+		case 4: return String::chr('n');
+		case 5: return String::chr('h');
 
-        case 7: return String::chr('t');
-		case 8: return String::chr('l');
-		case 9: return String::chr('o');
+        case 6: return String::chr('t');
+		case 7: return String::chr('l');
+		case 8: return String::chr('o');
 
-        case 10: return String::chr('a');
-		case 11: return String::chr('w');
-		case 12: return String::chr('d');
+        case 9: return String::chr('a');
+		case 10: return String::chr('w');
+		case 11: return String::chr('d');
 
-        case 13: return String::chr('e');
-		case 14: return String::chr('i');
-		case 15: return String::chr('g');
+        case 12: return String::chr('e');
+		case 13: return String::chr('i');
+		case 14: return String::chr('g');
 	}
 	return String::chr('r');;         // Default is rock just in case
 }
