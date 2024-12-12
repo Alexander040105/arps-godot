@@ -9,6 +9,6 @@ func _ready() -> void:
 	print(summator.get_total())
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every rame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

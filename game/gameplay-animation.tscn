@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc22mvwuvft1k"]
+[gd_scene load_steps=10 format=3 uid="uid://bc22mvwuvft1k"]
 
 [ext_resource type="Texture2D" uid="uid://dcfxx1lbxab7k" path="res://gameplayAnimation/(No BG) Gameplay Start #1.1.png" id="1_0w8yb"]
 [ext_resource type="Texture2D" uid="uid://cu7mqjvwtxjk7" path="res://gameplayAnimation/7th Page UI.png" id="1_au1rq"]
@@ -19,11 +19,22 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": true,
 "name": &"default",
 "speed": 6.0
 }]
+
+[sub_resource type="Animation" id="Animation_80xov"]
+resource_name = "initial_bato_pick"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7341t"]
+_data = {
+"initial_bato_pick": SubResource("Animation_80xov")
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -51,4 +62,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
 position = Vector2(576, 323.5)
 scale = Vector2(0.342857, 0.342328)
 sprite_frames = SubResource("SpriteFrames_l6xda")
-frame_progress = 0.694353
+frame_progress = 0.971052
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_7341t")
+}

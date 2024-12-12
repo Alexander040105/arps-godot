@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqego87ek2cbm"]
+
+[ext_resource type="Texture2D" uid="uid://cg0rjd0pgc3k7" path="res://backgroundd/(No BG) 1st Page.png" id="1_7bgvh"]
+[ext_resource type="Texture2D" uid="uid://b0i1e3r0h7yjs" path="res://backgroundd/1st Page.png" id="2_hl0bn"]
+[ext_resource type="Script" path="res://loading_animation.gd" id="3_ai7ch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2uvh"]
+bg_color = Color(0.0100903, 0.0100903, 0.0100903, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_op1eu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7bgvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hl0bn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bglayer1" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2uvh")
+
+[node name="loading-animation" type="AnimatedSprite2D" parent="bglayer1"]
+position = Vector2(584, 324)
+scale = Vector2(0.343, 0.343)
+sprite_frames = SubResource("SpriteFrames_op1eu")
+frame = 1
+frame_progress = 1.0
+script = ExtResource("3_ai7ch")
+
+[connection signal="animation_changed" from="bglayer1/loading-animation" to="bglayer1/loading-animation" method="_on_loading_animation_changed"]
+[connection signal="ready" from="bglayer1/loading-animation" to="bglayer1/loading-animation" method="_on_loading_ready"]

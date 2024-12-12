@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://wroa3umjsenr"]
+[gd_scene load_steps=11 format=3 uid="uid://wroa3umjsenr"]
 
 [ext_resource type="Texture2D" uid="uid://c0nndmousr2ei" path="res://backgroundd/2nd Page.png" id="1_7wkkq"]
 [ext_resource type="Texture2D" uid="uid://dnd1ixfsmr1o8" path="res://buttons/(No BG) Logo.png" id="2_141yh"]
 [ext_resource type="Texture2D" uid="uid://pnuho56hg2au" path="res://buttons/(No BG) Start Button.png" id="3_3mdkx"]
 [ext_resource type="Texture2D" uid="uid://bkg7if2xlwo2m" path="res://buttons/(Hover) Start Button.png" id="4_hsi6x"]
+[ext_resource type="Script" path="res://start_button.gd" id="5_k5kg6"]
+[ext_resource type="Texture2D" uid="uid://x60bdmcms47f" path="res://buttons/(No BG) Pause - Leave.png" id="6_elq8y"]
+[ext_resource type="Texture2D" uid="uid://c62vu3bgox4wp" path="res://buttons/(Hover) Pause - Leave.png" id="7_y5n5n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1oj7"]
 bg_color = Color(0.0100903, 0.0100903, 0.0100903, 1)
@@ -64,10 +67,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="start_button" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("3_3mdkx")
 texture_pressed = ExtResource("4_hsi6x")
 texture_hover = ExtResource("4_hsi6x")
+script = ExtResource("5_k5kg6")
+
+[node name="quit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_elq8y")
+texture_pressed = ExtResource("7_y5n5n")
+texture_hover = ExtResource("7_y5n5n")
+
+[connection signal="pressed" from="VBoxContainer/start_button" to="VBoxContainer/start_button" method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="VBoxContainer/start_button" method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="VBoxContainer/quit" method="_on_pressed"]
