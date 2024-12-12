@@ -146,7 +146,7 @@ texture_pressed = ExtResource("13_x4d6t")
 texture_hover = ExtResource("13_x4d6t")
 script = ExtResource("8_nenia")
 
-[node name="Wind" type="TextureButton" parent="HBoxContainer"]
+[node name="Air" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("14_2macd")
 texture_pressed = ExtResource("15_3d1mg")
@@ -160,7 +160,7 @@ texture_pressed = ExtResource("17_ymsep")
 texture_hover = ExtResource("17_ymsep")
 script = ExtResource("8_nenia")
 
-[node name="Electric" type="TextureButton" parent="HBoxContainer"]
+[node name="Lightning" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("18_3yh51")
 texture_pressed = ExtResource("19_416rr")
@@ -174,10 +174,18 @@ texture_pressed = ExtResource("21_hd53q")
 texture_hover = ExtResource("21_hd53q")
 script = ExtResource("8_nenia")
 
-[node name="Water3" type="TextureButton" parent="HBoxContainer"]
+[node name="Dragon" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("12_rftqh")
 texture_pressed = ExtResource("13_x4d6t")
 script = ExtResource("8_nenia")
 
-[connection signal="pressed" from="HBoxContainer/Rock" to="HBoxContainer/Rock" method="_on_gameplay1_pressed"]
+[connection signal="pressed" from="HBoxContainer/Rock" to="HBoxContainer/Rock" method="_on_rock_pressed"]
+[connection signal="pressed" from="HBoxContainer/Scissors" to="HBoxContainer/Rock" method="_on_scissors_pressed"]
+[connection signal="pressed" from="HBoxContainer/Paper" to="HBoxContainer/Rock" method="_on_paper_pressed"]
+[connection signal="pressed" from="HBoxContainer/Water" to="HBoxContainer/Rock" method="_on_water_pressed"]
+[connection signal="pressed" from="HBoxContainer/Air" to="HBoxContainer/Rock" method="_on_wind_pressed"]
+[connection signal="pressed" from="HBoxContainer/Fire" to="HBoxContainer/Rock" method="_on_fire_pressed"]
+[connection signal="pressed" from="HBoxContainer/Lightning" to="HBoxContainer/Rock" method="_on_electric_pressed"]
+[connection signal="pressed" from="HBoxContainer/Devil" to="HBoxContainer/Rock" method="_on_devil_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dragon" to="HBoxContainer/Rock" method="_on_dragon_pressed"]
