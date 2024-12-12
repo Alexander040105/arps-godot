@@ -1,11 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://bc22mvwuvft1k"]
+[gd_scene load_steps=32 format=3 uid="uid://bc22mvwuvft1k"]
 
 [ext_resource type="Texture2D" uid="uid://dcfxx1lbxab7k" path="res://gameplayAnimation/(No BG) Gameplay Start #1.1.png" id="1_0w8yb"]
 [ext_resource type="Texture2D" uid="uid://cu7mqjvwtxjk7" path="res://gameplayAnimation/7th Page UI.png" id="1_au1rq"]
 [ext_resource type="Texture2D" uid="uid://ca457ryd3vf2d" path="res://gameplayAnimation/(No BG) Gameplay.png" id="2_qrxww"]
 [ext_resource type="Texture2D" uid="uid://w42i3ini78fh" path="res://gameplayAnimation/(No BG) Gameplay Start #2.1.png" id="2_ru8ir"]
-[ext_resource type="Texture2D" uid="uid://5tv8ktx2h1mp" path="res://gameplayAnimation/(No BG) Gameplay Start #1.png" id="3_hpyoj"]
-[ext_resource type="Texture2D" uid="uid://br1i4gtiejure" path="res://gameplayAnimation/(No BG) Gameplay Start #2.png" id="4_m5ir7"]
 [ext_resource type="Texture2D" uid="uid://dbtxkqyf3ucvh" path="res://GAME BUTTONS/ROCK(DEFAULT).png" id="7_iwmrq"]
 [ext_resource type="Texture2D" uid="uid://cmm6n7ltcjx2t" path="res://GAME BUTTONS/ROCK(HOVER).png" id="8_hh7fb"]
 [ext_resource type="Script" path="res://gameplay.gd" id="8_nenia"]
@@ -23,27 +21,19 @@
 [ext_resource type="Texture2D" uid="uid://c66vtpiqmsweg" path="res://GAME BUTTONS/FIRE(HOVER)2.png" id="19_6mku0"]
 [ext_resource type="Texture2D" uid="uid://qub738hpxa6f" path="res://GAME BUTTONS/DEVIL(DEFAULT).png" id="20_5twku"]
 [ext_resource type="Texture2D" uid="uid://bp13cy6xm4sua" path="res://GAME BUTTONS/ELECTRIC(HOVER)2.png" id="21_yws5l"]
+[ext_resource type="Texture2D" uid="uid://y2qa5xna2ywe" path="res://backgroundd/2 (Full Screen) 'You Won' Pop-Up (2).png" id="23_3s5d5"]
 [ext_resource type="Texture2D" uid="uid://dnpbhxapvsl75" path="res://GAME BUTTONS/DEVIL(HOVER)2.png" id="23_v5k2x"]
+[ext_resource type="Texture2D" uid="uid://cskrcvw7axlqg" path="res://buttons/(No BG) Play Again.png" id="24_d0iqd"]
+[ext_resource type="Texture2D" uid="uid://q67pfcgx5ob2" path="res://buttons/(No BG) Play Again (2).png" id="25_v1dx1"]
+[ext_resource type="Texture2D" uid="uid://x60bdmcms47f" path="res://buttons/(No BG) Pause - Leave.png" id="26_7t7os"]
+[ext_resource type="Texture2D" uid="uid://c62vu3bgox4wp" path="res://buttons/(Hover) Pause - Leave.png" id="27_4ov6y"]
+[ext_resource type="Texture2D" uid="uid://cr6c2wcubhf5a" path="res://backgroundd/2 (Full Screen) 'You Won' Pop-Up (3).png" id="28_mfdgi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoke"]
 texture = ExtResource("1_au1rq")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy175"]
 texture = ExtResource("2_qrxww")
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8cena"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_hpyoj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_m5ir7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l6xda"]
 animations = [{
@@ -55,22 +45,80 @@ animations = [{
 "texture": ExtResource("2_ru8ir")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ru8ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_0w8yb")
 }],
-"loop": true,
-"name": &"default",
-"speed": 6.0
+"loop": false,
+"name": &"animation1",
+"speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_80xov"]
-resource_name = "initial_bato_pick"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7341t"]
-_data = {
-"initial_bato_pick": SubResource("Animation_80xov")
-}
-
-[node name="Node2D" type="Node2D"]
+[node name="Gameplay" type="Node2D"]
 
 [node name="ui" type="Panel" parent="."]
 anchors_preset = 15
@@ -82,35 +130,6 @@ offset_bottom = 647.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5hoke")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 1152.0
-offset_bottom = 647.0
-
-[node name="bg1" type="Panel" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
-
-[node name="WithBackground" type="AnimatedSprite2D" parent="VBoxContainer"]
-visible = false
-position = Vector2(576, 323.5)
-scale = Vector2(0.342857, 0.342328)
-sprite_frames = SubResource("SpriteFrames_8cena")
-frame_progress = 0.707151
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
-visible = false
-position = Vector2(576, 323.5)
-scale = Vector2(0.342857, 0.342328)
-sprite_frames = SubResource("SpriteFrames_l6xda")
-frame_progress = 0.971052
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer"]
-libraries = {
-"": SubResource("AnimationLibrary_7341t")
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 43.0
@@ -181,6 +200,74 @@ layout_mode = 2
 texture_normal = ExtResource("12_rftqh")
 texture_pressed = ExtResource("13_x4d6t")
 script = ExtResource("8_nenia")
+
+[node name="bg1" type="Panel" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 647.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
+
+[node name="initialAni" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(576, 323.5)
+scale = Vector2(0.342857, 0.342328)
+sprite_frames = SubResource("SpriteFrames_l6xda")
+animation = &"animation1"
+
+[node name="youWon" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_right = 3351.0
+offset_bottom = 1885.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.343, 0.343)
+size_flags_vertical = 4
+texture = ExtResource("23_3s5d5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="youWon"]
+layout_mode = 0
+offset_left = 1084.55
+offset_top = 1072.89
+offset_right = 1516.55
+offset_bottom = 1270.89
+scale = Vector2(3, 3)
+
+[node name="Play Again" type="TextureButton" parent="youWon/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("24_d0iqd")
+texture_pressed = ExtResource("25_v1dx1")
+texture_hover = ExtResource("25_v1dx1")
+
+[node name="Leave" type="TextureButton" parent="youWon/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("26_7t7os")
+texture_pressed = ExtResource("27_4ov6y")
+texture_hover = ExtResource("27_4ov6y")
+
+[node name="youLose" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.999998
+offset_right = 3351.0
+offset_bottom = 1885.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.343, 0.343)
+size_flags_vertical = 4
+texture = ExtResource("28_mfdgi")
 
 [connection signal="pressed" from="HBoxContainer/Rock" to="HBoxContainer/Rock" method="_on_rock_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scissors" to="HBoxContainer/Rock" method="_on_scissors_pressed"]

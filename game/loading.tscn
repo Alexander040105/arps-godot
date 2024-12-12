@@ -1,25 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqego87ek2cbm"]
+[gd_scene load_steps=11 format=3 uid="uid://dqego87ek2cbm"]
 
-[ext_resource type="Texture2D" uid="uid://cg0rjd0pgc3k7" path="res://backgroundd/(No BG) 1st Page.png" id="1_7bgvh"]
-[ext_resource type="Texture2D" uid="uid://b0i1e3r0h7yjs" path="res://backgroundd/1st Page.png" id="2_hl0bn"]
-[ext_resource type="Script" path="res://loading_animation.gd" id="3_ai7ch"]
+[ext_resource type="Texture2D" uid="uid://c0nndmousr2ei" path="res://backgroundd/2nd Page.png" id="1_qnv18"]
+[ext_resource type="Texture2D" uid="uid://dnd1ixfsmr1o8" path="res://buttons/(No BG) Logo.png" id="2_qnrkk"]
+[ext_resource type="Texture2D" uid="uid://cskrcvw7axlqg" path="res://buttons/(No BG) Play Again.png" id="3_6bprp"]
+[ext_resource type="Texture2D" uid="uid://q67pfcgx5ob2" path="res://buttons/(No BG) Play Again (2).png" id="4_62au7"]
+[ext_resource type="Texture2D" uid="uid://x60bdmcms47f" path="res://buttons/(No BG) Pause - Leave.png" id="6_xe3xl"]
+[ext_resource type="Texture2D" uid="uid://c62vu3bgox4wp" path="res://buttons/(Hover) Pause - Leave.png" id="7_gu6sb"]
+[ext_resource type="Script" path="res://gameplay.gd" id="8_pynpr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2uvh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp1hv"]
 bg_color = Color(0.0100903, 0.0100903, 0.0100903, 1)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_op1eu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_7bgvh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_hl0bn")
-}],
-"loop": false,
-"name": &"default",
-"speed": 2.0
-}]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c50q8"]
+texture = ExtResource("1_qnv18")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogyn0"]
+texture = ExtResource("2_qnrkk")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,15 +32,58 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_s2uvh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mp1hv")
 
-[node name="loading-animation" type="AnimatedSprite2D" parent="bglayer1"]
-position = Vector2(584, 324)
-scale = Vector2(0.343, 0.343)
-sprite_frames = SubResource("SpriteFrames_op1eu")
-frame = 1
-frame_progress = 1.0
-script = ExtResource("3_ai7ch")
+[node name="bglayer2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c50q8")
 
-[connection signal="animation_changed" from="bglayer1/loading-animation" to="bglayer1/loading-animation" method="_on_loading_animation_changed"]
-[connection signal="ready" from="bglayer1/loading-animation" to="bglayer1/loading-animation" method="_on_loading_ready"]
+[node name="arpsLogo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ogyn0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 156.0
+offset_right = 216.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="play-again" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_6bprp")
+texture_pressed = ExtResource("4_62au7")
+texture_hover = ExtResource("4_62au7")
+script = ExtResource("8_pynpr")
+
+[node name="quit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_xe3xl")
+texture_pressed = ExtResource("7_gu6sb")
+texture_hover = ExtResource("7_gu6sb")
+script = ExtResource("8_pynpr")
+
+[connection signal="pressed" from="VBoxContainer/play-again" to="VBoxContainer/play-again" method="_on_playagain_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="VBoxContainer/quit" method="_on_mainmenu_pressed"]

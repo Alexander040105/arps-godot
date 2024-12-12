@@ -1,5 +1,6 @@
 #include "Arps.h"
 #include <godot_cpp/core/class_db.hpp>
+#include <godot-cpp/core/
 #include <cstdlib>
 #include <ctime>
 
@@ -49,31 +50,31 @@ char Arps::getComputerChoice(){
 
 void Arps::showChoice(char choice){           // May or may not be necessary in final, very temp
 	switch(choice){
-		case 'r': UtilityFunctions::print("Rock"); break;
-		case 'p': UtilityFunctions::print("Paper"); break;
-        case 's': UtilityFunctions::print("Scissors"); break;
+		// case 'r': UtilityFunctions::print("Rock"); break;
+		// case 'p': UtilityFunctions::print("Paper"); break;
+        // case 's': UtilityFunctions::print("Scissors"); break;
 
-        case 'f': UtilityFunctions::print("Fire"); break;
-		case 'n': UtilityFunctions::print("Snake"); break;
-		case 'h': UtilityFunctions::print("Human"); break;
+        // case 'f': UtilityFunctions::print("Fire"); break;
+		// case 'n': UtilityFunctions::print("Snake"); break;
+		// case 'h': UtilityFunctions::print("Human"); break;
 
-        case 't': UtilityFunctions::print("Tree"); break;
-		case 'l': UtilityFunctions::print("Wolf"); break;
-		case 'o': UtilityFunctions::print("Sponge"); break;
+        // case 't': UtilityFunctions::print("Tree"); break;
+		// case 'l': UtilityFunctions::print("Wolf"); break;
+		// case 'o': UtilityFunctions::print("Sponge"); break;
 
-        case 'a': UtilityFunctions::print("Air"); break;
-		case 'w': UtilityFunctions::print("Water"); break;
-		case 'd': UtilityFunctions::print("Dragon"); break;
+        // case 'a': UtilityFunctions::print("Air"); break;
+		// case 'w': UtilityFunctions::print("Water"); break;
+		// case 'd': UtilityFunctions::print("Dragon"); break;
 
-        case 'e': UtilityFunctions::print("Devil"); break;
-		case 'i': UtilityFunctions::print("Lightning"); break;
-		case 'g': UtilityFunctions::print("Gun"); break;
+        // case 'e': UtilityFunctions::print("Devil"); break;
+		// case 'i': UtilityFunctions::print("Lightning"); break;
+		// case 'g': UtilityFunctions::print("Gun"); break;
 	}
 }
 
-void Arps::chooseWinner() {
+void Arps::chooseWinner(char player, char computer) {
     if (playerChoice == computerChoice) {
-        UtilityFunctions::print("It's a tie!");
+        // UtilityFunctions::print("It's a tie!");
     } else if   ((playerChoice == 'r' && computerChoice == 's') ||
                 (playerChoice == 'r' && computerChoice == 'f') ||
                 (playerChoice == 'r' && computerChoice == 'n') ||
@@ -84,9 +85,9 @@ void Arps::chooseWinner() {
 
                 (playerChoice == 'p' && computerChoice == 'r') ||
                 (playerChoice == 's' && computerChoice == 'p')) {
-        UtilityFunctions::print("You win!");
+        // UtilityFunctions::print("You win!");
     } else {
-        UtilityFunctions::print("You lose!");
+        // UtilityFunctions::print("You lose!");
     }
 }
 
@@ -99,5 +100,5 @@ void Game::start_game(const String &choice) {
     UtilityFunctions::print("Computer choice:");
     show_choice(computer_choice);
 
-    choose_winner();
+    choose_winner(player_choice, computer_choice);
 }

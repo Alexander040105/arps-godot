@@ -16,7 +16,7 @@ private:
     char getUserChoice(const String &choice);
     char getComputerChoice();                           
     void showChoice(char choice);                       
-    void chooseWinner();
+    void chooseWinner(char player, char computer);
 
 public:
     Arps();
