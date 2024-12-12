@@ -1,12 +1,15 @@
 #include "Arps.h"
 #include <godot_cpp/core/class_db.hpp>
-#include <godot-cpp/core/
+#include <godot_cpp/classes/node.hpp>
+#include <godot_cpp/classes/texture_rect.hpp>
+#include <godot_cpp/variant/utility_functions.hpp>
 #include <cstdlib>
 #include <ctime>
 
 void Arps::_bind_methods() {
     ClassDB::bind_method(D_METHOD("getComputerChoice"), &Arps::getComputerChoice);
     ClassDB::bind_method(D_METHOD("chooseWinner"), &Arps::chooseWinner);
+    ClassDB::bind_method(D_METHOD("showResult", "resultName"), &Arps::showResult);
 }
 
 Arps::Arps() {
@@ -43,112 +46,133 @@ String Arps::getComputerChoice(){
 }
    
 String Arps::chooseWinner() {
+    String result;
     if (playerChoice == computerChoice) {
-        return String::chr('t');;
+        result = "youTied";
 
     //Rock
     } else if (playerChoice == 'r') { 
         if(computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     } 
     //Fire
     else if (playerChoice == 'f') { 
         if(computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p'  ) {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Scissors
     else if (playerChoice == 's') { 
         if(computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Snake
     else if (playerChoice == 'n') { 
         if(computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Human
     else if (playerChoice == 'h') { 
         if(computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Tree
     else if (playerChoice == 't') { 
         if(computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Wolf
     else if (playerChoice == 'l') { 
         if(computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Sponge
     else if (playerChoice == 'o') { 
         if(computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Paper
     else if (playerChoice == 'p') { 
         if(computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Air
     else if (playerChoice == 'a') { 
         if(computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Water
     else if (playerChoice == 'w') { 
         if(computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' ) {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Dragon
     else if (playerChoice == 'd') { 
         if(computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' ) {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Devil
     else if (playerChoice == 'e') { 
         if(computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' ) {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
-    //Devil
+    //Lightning
     else if (playerChoice == 'i') { 
         if(computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
     //Gun
     else if (playerChoice == 'g') { 
         if(computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l') {
-            return String::chr('w');;
+            result = "youWin";
         }
-        else return String::chr('l');;
+        else result = "youLose";
     }
+
+    showResult(result);
+    return result;
 }
+
+void Arps::showResult(const String &resultName) {
+    Node *node = find_child(resultName, true, false);
+    if (!node) {
+        UtilityFunctions::print("Error: Node not found: ", resultName);
+        return;
+    }
+
+    TextureRect *result_texture = cast_to<TextureRect>(node);
+    if (!result_texture) {
+        UtilityFunctions::print("Error: Node is not a TextureRect: ", resultName);
+        return;
+    }
+
+    result_texture->set_visible(true);
+}
+

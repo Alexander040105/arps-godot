@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bc22mvwuvft1k"]
+[gd_scene load_steps=32 format=3 uid="uid://bim2khteqjvpf"]
 
 [ext_resource type="Texture2D" uid="uid://dcfxx1lbxab7k" path="res://gameplayAnimation/(No BG) Gameplay Start #1.1.png" id="1_0w8yb"]
 [ext_resource type="Texture2D" uid="uid://cu7mqjvwtxjk7" path="res://gameplayAnimation/7th Page UI.png" id="1_au1rq"]
