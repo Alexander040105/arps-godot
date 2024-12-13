@@ -17,11 +17,14 @@ func _ready():
 
 func handle_button_pressed(choice):
 	var playerChoice = choice
-	print(playerChoice)
+	print("Player Choice:", playerChoice)
 	var computerChoice = arps.getComputerChoice()
-	print(computerChoice)
+	print("Computer Choice:", computerChoice)
 	var result = arps.chooseWinner(playerChoice, computerChoice)
-	print(result)
+	if result == null or result == "":
+		print("Error: chooseWinner returned an invalid value.")
+	else:
+		print("Result:", result)
 	
 	var gameplay_background = get_node("/root/Gameplay/bg1")
 	gameplay_background.visible = true
@@ -55,8 +58,7 @@ func displayResult(result: String):
 
 
 func _on_rock_pressed() -> void:
-	var userChoice = "r"
-	handle_button_pressed(userChoice)
+	handle_button_pressed("r")
 
 func _on_scissors_pressed() -> void:
 	handle_button_pressed("s")
