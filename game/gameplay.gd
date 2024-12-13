@@ -8,12 +8,13 @@ func _ready() -> void:
 
 func _on_rock_pressed(choice: String = "r") -> void:
 	arps.playerChoice = choice
-	arps.get_computer_choice()
-	arps.choose_winner()
+	var computer = arps.get_computer_choice()
+	var decision = arps.choose_winner()
 	var gameplay_background = get_node("/root/Gameplay/bg1")
 	gameplay_background.visible = true
 	# Let the animation play out
-	arps.showResult()
+	show_comp_animation(choice, computer, decision)
+	
 
 
 func _on_scissors_pressed() -> void:
@@ -81,15 +82,25 @@ func _on_mainmenu_pressed() -> void:
 func _on_playagain_pressed() -> void:
 	get_tree().change_scene_to_file("res://gameplay-animation.tscn")
 	
-func show_comp_animation(computer):
+func show_comp_animation(player, computer, winner_decision):
 	var gameplay_background = get_node("/root/Gameplay/bg1")
 	var bato_bato_pick = get_node("/root/Gameplay/initialAni")
 	
 	if computer == 'r':
 		bato_bato_pick.visible = true
+		arps.showResult()
+		
 		
 
 	#var arps_func = Arps.new()
 	#var choose_winner = Arps.chooseWinner(player: String, computer: String)
 	#if choose_winner == 'w':
 	#	you win screen
+
+
+func _on_play_again_pressed() -> void:
+	get_tree().change_scene_to_file("res://gameplay-animation.tscn")
+
+
+func _on_leave_pressed() -> void:
+	get_tree().change_scene_to_file("res://main-menu.tscn")

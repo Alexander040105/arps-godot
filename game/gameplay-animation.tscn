@@ -234,9 +234,9 @@ texture = ExtResource("23_3s5d5")
 [node name="HBoxContainer" type="HBoxContainer" parent="youWon"]
 layout_mode = 0
 offset_left = 1084.55
-offset_top = 1072.89
+offset_top = 1084.55
 offset_right = 1516.55
-offset_bottom = 1270.89
+offset_bottom = 1282.55
 scale = Vector2(3, 3)
 
 [node name="Play Again" type="TextureButton" parent="youWon/HBoxContainer"]
@@ -245,6 +245,7 @@ size_flags_horizontal = 3
 texture_normal = ExtResource("24_d0iqd")
 texture_pressed = ExtResource("25_v1dx1")
 texture_hover = ExtResource("25_v1dx1")
+script = ExtResource("8_nenia")
 
 [node name="Leave" type="TextureButton" parent="youWon/HBoxContainer"]
 layout_mode = 2
@@ -252,6 +253,7 @@ size_flags_horizontal = 3
 texture_normal = ExtResource("26_7t7os")
 texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
+script = ExtResource("8_nenia")
 
 [node name="youLose" type="TextureRect" parent="."]
 visible = false
@@ -269,6 +271,29 @@ scale = Vector2(0.343, 0.343)
 size_flags_vertical = 4
 texture = ExtResource("28_mfdgi")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="youLose"]
+offset_left = 1084.55
+offset_top = 1084.55
+offset_right = 1516.55
+offset_bottom = 1282.55
+scale = Vector2(3, 3)
+
+[node name="Play Again" type="TextureButton" parent="youLose/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("24_d0iqd")
+texture_pressed = ExtResource("25_v1dx1")
+texture_hover = ExtResource("25_v1dx1")
+script = ExtResource("8_nenia")
+
+[node name="Leave" type="TextureButton" parent="youLose/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("26_7t7os")
+texture_pressed = ExtResource("27_4ov6y")
+texture_hover = ExtResource("27_4ov6y")
+script = ExtResource("8_nenia")
+
 [connection signal="pressed" from="HBoxContainer/Rock" to="HBoxContainer/Rock" method="_on_rock_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scissors" to="HBoxContainer/Rock" method="_on_scissors_pressed"]
 [connection signal="pressed" from="HBoxContainer/Paper" to="HBoxContainer/Rock" method="_on_paper_pressed"]
@@ -278,3 +303,7 @@ texture = ExtResource("28_mfdgi")
 [connection signal="pressed" from="HBoxContainer/Lightning" to="HBoxContainer/Rock" method="_on_electric_pressed"]
 [connection signal="pressed" from="HBoxContainer/Devil" to="HBoxContainer/Rock" method="_on_devil_pressed"]
 [connection signal="pressed" from="HBoxContainer/Dragon" to="HBoxContainer/Rock" method="_on_dragon_pressed"]
+[connection signal="pressed" from="youWon/HBoxContainer/Play Again" to="HBoxContainer/Rock" method="_on_play_again_pressed"]
+[connection signal="pressed" from="youWon/HBoxContainer/Leave" to="HBoxContainer/Rock" method="_on_leave_pressed"]
+[connection signal="pressed" from="youLose/HBoxContainer/Play Again" to="HBoxContainer/Rock" method="_on_play_again_pressed"]
+[connection signal="pressed" from="youLose/HBoxContainer/Leave" to="HBoxContainer/Rock" method="_on_leave_pressed"]
