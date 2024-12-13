@@ -42,3 +42,8 @@ exitGame()
 pauseGame()
 muteMusic()
 
+bale yung logic is:
+
+var function = Function.new()
+var comp_choice = function.Computer_choice()
+var choose_winner = function.Choose_winner(player, comp_choice)
