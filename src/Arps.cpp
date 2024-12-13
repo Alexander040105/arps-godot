@@ -8,8 +8,9 @@
 
 void Arps::_bind_methods() {
     ClassDB::bind_method(D_METHOD("getComputerChoice"), &Arps::getComputerChoice);
-    ClassDB::bind_method(D_METHOD("chooseWinner"), &Arps::chooseWinner);
-    ClassDB::bind_method(D_METHOD("showResult", "resultName"), &Arps::showResult);
+    ClassDB::bind_method(D_METHOD("chooseWinner", "playerChoice", "computerChoice"), &Arps::chooseWinner);
+    ClassDB::bind_method(D_METHOD("get_playerChoice"), &Arps::get_playerChoice);
+    ClassDB::bind_method(D_METHOD("set_playerChoice"), &Arps::set_playerChoice);
 }
 
 Arps::Arps() {
@@ -42,10 +43,10 @@ String Arps::getComputerChoice(){
 		case 13: return String::chr('i');
 		case 14: return String::chr('g');
 	}
-	return String::chr('r');;         // Default is rock just in case
+	return String::chr('r');         // Default is rock just in case
 }
    
-String Arps::chooseWinner() {
+String Arps::chooseWinner(String playerChoice, String computerChoice) {
     String result;
     if (playerChoice == computerChoice) {
         result = "youTied";
@@ -156,23 +157,5 @@ String Arps::chooseWinner() {
         else result = "youLose";
     }
 
-    showResult(result);
     return result;
 }
-
-void Arps::showResult(const String &resultName) {
-    Node *node = find_child(resultName, true, false);
-    if (!node) {
-        UtilityFunctions::print("Error: Node not found: ", resultName);
-        return;
-    }
-
-    TextureRect *result_texture = cast_to<TextureRect>(node);
-    if (!result_texture) {
-        UtilityFunctions::print("Error: Node is not a TextureRect: ", resultName);
-        return;
-    }
-
-    result_texture->set_visible(true);
-}
-

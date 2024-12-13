@@ -128,9 +128,13 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78kp3"]
 bg_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
 
-[node name="Gameplay" type="Node2D"]
+[node name="Gameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("8_nenia")
 
 [node name="ui" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -227,6 +231,7 @@ animation = &"animation1"
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -267,6 +272,24 @@ script = ExtResource("8_nenia")
 
 [node name="youLose" type="TextureRect" parent="."]
 visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.999998
+offset_right = 3351.0
+offset_bottom = 1885.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.343, 0.343)
+size_flags_vertical = 4
+texture = ExtResource("28_mfdgi")
+
+[node name="youTied" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -437,3 +460,12 @@ script = ExtResource("8_nenia")
 [connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Continue" to="pausePanel/pauseRect/HBoxContainer/Continue" method="_on_continue_pressed"]
 [connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Leave" to="HBoxContainer/Rock" method="_on_leave_pressed"]
 [connection signal="pressed" from="pauseButton" to="pauseButton" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Rock" to="." method="_on_rock_pressed"]
+[connection signal="pressed" from="HBoxContainer/Scissors" to="." method="_on_scissors_pressed"]
+[connection signal="pressed" from="HBoxContainer/Paper" to="." method="_on_paper_pressed"]
+[connection signal="pressed" from="HBoxContainer/Water" to="." method="_on_water_pressed"]
+[connection signal="pressed" from="HBoxContainer/Air" to="." method="_on_air_pressed"]
+[connection signal="pressed" from="HBoxContainer/Fire" to="." method="_on_fire_pressed"]
+[connection signal="pressed" from="HBoxContainer/Lightning" to="." method="_on_lightning_pressed"]
+[connection signal="pressed" from="HBoxContainer/Devil" to="." method="_on_devil_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dragon" to="." method="_on_dragon_pressed"]
