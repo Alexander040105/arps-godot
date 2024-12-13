@@ -7,7 +7,7 @@ func _ready() -> void:
 @onready var arps = $Arps
 @onready var youWon = get_node("/root/Gameplay/youWon")
 @onready var youLose = get_node("/root/Gameplay/youLose")
-@onready var youTie = get_node("/root/Gameplay/youTie")
+@onready var youTied = get_node("/root/Gameplay/youTied")
 @onready var gameplay_background = get_node("/root/Gameplay/bg1")
 
 func _on_rock_pressed(choice: String = "r") -> void:
@@ -104,7 +104,7 @@ func show_comp_animation(player, computer, winner_decision):
 func _on_play_again_pressed() -> void:
 	youWon.set_visible(false) 
 	youLose.set_visible(false)
-	youTie.set_visible(false)
+	youTied.set_visible(false)
 
 
 func _on_leave_pressed() -> void:
