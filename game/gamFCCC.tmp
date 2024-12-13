@@ -346,6 +346,17 @@ texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
 script = ExtResource("8_nenia")
 
+[node name="pauseButton" type="TextureButton" parent="."]
+offset_left = 35.0
+offset_top = 19.0
+offset_right = 163.0
+offset_bottom = 147.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("30_bbfju")
+texture_pressed = ExtResource("31_uma23")
+texture_hover = ExtResource("31_uma23")
+script = ExtResource("8_nenia")
+
 [node name="pausePanel" type="Panel" parent="."]
 visible = false
 anchors_preset = 8
@@ -408,17 +419,6 @@ texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
 script = ExtResource("8_nenia")
 
-[node name="pauseButton" type="TextureButton" parent="."]
-offset_left = 35.0
-offset_top = 19.0
-offset_right = 163.0
-offset_bottom = 147.0
-scale = Vector2(0.35, 0.35)
-texture_normal = ExtResource("30_bbfju")
-texture_pressed = ExtResource("31_uma23")
-texture_hover = ExtResource("31_uma23")
-script = ExtResource("8_nenia")
-
 [connection signal="pressed" from="HBoxContainer/Rock" to="HBoxContainer/Rock" method="_on_rock_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scissors" to="HBoxContainer/Rock" method="_on_scissors_pressed"]
 [connection signal="pressed" from="HBoxContainer/Paper" to="HBoxContainer/Rock" method="_on_paper_pressed"]
@@ -434,6 +434,6 @@ script = ExtResource("8_nenia")
 [connection signal="pressed" from="youLose/HBoxContainer/Leave" to="HBoxContainer/Rock" method="_on_leave_pressed"]
 [connection signal="pressed" from="youTied/HBoxContainer/Play Again" to="HBoxContainer/Rock" method="_on_play_again_pressed"]
 [connection signal="pressed" from="youTied/HBoxContainer/Leave" to="HBoxContainer/Rock" method="_on_leave_pressed"]
+[connection signal="pressed" from="pauseButton" to="pauseButton" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Continue" to="pausePanel/pauseRect/HBoxContainer/Continue" method="_on_continue_pressed"]
 [connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Leave" to="HBoxContainer/Rock" method="_on_leave_pressed"]
-[connection signal="pressed" from="pauseButton" to="pauseButton" method="_on_pause_button_pressed"]

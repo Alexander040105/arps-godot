@@ -9,12 +9,12 @@ func _ready() -> void:
 @onready var youLose = get_node("/root/Gameplay/youLose")
 @onready var youTied = get_node("/root/Gameplay/youTied")
 @onready var gameplay_background = get_node("/root/Gameplay/bg1")
+@onready var pausePanel = get_node("/root/Gameplay/pausePanel")
 
 func _on_rock_pressed(choice: String = "r") -> void:
 	arps.playerChoice = choice
 	var computer = arps.get_computer_choice()
 	var decision = arps.choose_winner()
-	var gameplay_background = get_node("/root/Gameplay/bg1")
 	gameplay_background.visible = true
 	# Let the animation play out
 	show_comp_animation(choice, computer, decision)
@@ -109,3 +109,11 @@ func _on_play_again_pressed() -> void:
 
 func _on_leave_pressed() -> void:
 	get_tree().change_scene_to_file("res://main-menu.tscn")
+
+
+func _on_pause_button_pressed() -> void:
+	pausePanel.set_visible(true)
+
+
+func _on_continue_pressed() -> void:
+	pausePanel.set_visible(false)
