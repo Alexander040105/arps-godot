@@ -118,9 +118,13 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Gameplay" type="Node2D"]
+[node name="Gameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("8_nenia")
 
 [node name="ui" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -217,6 +221,7 @@ animation = &"animation1"
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -255,6 +260,7 @@ texture_hover = ExtResource("27_4ov6y")
 
 [node name="youLose" type="TextureRect" parent="."]
 visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -269,12 +275,29 @@ scale = Vector2(0.343, 0.343)
 size_flags_vertical = 4
 texture = ExtResource("28_mfdgi")
 
-[connection signal="pressed" from="HBoxContainer/Rock" to="HBoxContainer/Rock" method="_on_rock_pressed"]
-[connection signal="pressed" from="HBoxContainer/Scissors" to="HBoxContainer/Rock" method="_on_scissors_pressed"]
-[connection signal="pressed" from="HBoxContainer/Paper" to="HBoxContainer/Rock" method="_on_paper_pressed"]
-[connection signal="pressed" from="HBoxContainer/Water" to="HBoxContainer/Rock" method="_on_water_pressed"]
-[connection signal="pressed" from="HBoxContainer/Air" to="HBoxContainer/Rock" method="_on_wind_pressed"]
-[connection signal="pressed" from="HBoxContainer/Fire" to="HBoxContainer/Rock" method="_on_fire_pressed"]
-[connection signal="pressed" from="HBoxContainer/Lightning" to="HBoxContainer/Rock" method="_on_electric_pressed"]
-[connection signal="pressed" from="HBoxContainer/Devil" to="HBoxContainer/Rock" method="_on_devil_pressed"]
-[connection signal="pressed" from="HBoxContainer/Dragon" to="HBoxContainer/Rock" method="_on_dragon_pressed"]
+[node name="youTied" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.999998
+offset_right = 3351.0
+offset_bottom = 1885.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.343, 0.343)
+size_flags_vertical = 4
+texture = ExtResource("28_mfdgi")
+
+[connection signal="pressed" from="HBoxContainer/Rock" to="." method="_on_rock_pressed"]
+[connection signal="pressed" from="HBoxContainer/Scissors" to="." method="_on_scissors_pressed"]
+[connection signal="pressed" from="HBoxContainer/Paper" to="." method="_on_paper_pressed"]
+[connection signal="pressed" from="HBoxContainer/Water" to="." method="_on_water_pressed"]
+[connection signal="pressed" from="HBoxContainer/Air" to="." method="_on_air_pressed"]
+[connection signal="pressed" from="HBoxContainer/Fire" to="." method="_on_fire_pressed"]
+[connection signal="pressed" from="HBoxContainer/Lightning" to="." method="_on_lightning_pressed"]
+[connection signal="pressed" from="HBoxContainer/Devil" to="." method="_on_devil_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dragon" to="." method="_on_dragon_pressed"]
