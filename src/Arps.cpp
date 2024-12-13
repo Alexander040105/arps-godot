@@ -52,106 +52,106 @@ String Arps::chooseWinner(String playerChoice, String computerChoice) {
         result = "youTied";
 
     //Rock
-    } else if (playerChoice == 'r') { 
-        if(computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o') {
+    } else if (playerChoice == "r") { 
+        if(computerChoice == "f" || computerChoice == "s" || computerChoice == "n" || computerChoice == "h" || computerChoice == "t" || computerChoice == "l" || computerChoice == "o") {
             result = "youWin";
         }
         else result = "youLose";
     } 
     //Fire
-    else if (playerChoice == 'f') { 
-        if(computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p'  ) {
+    else if (playerChoice == "f") { 
+        if(computerChoice == "s" || computerChoice == "n" || computerChoice == "h" || computerChoice == "t" || computerChoice == "l" || computerChoice == "o" || computerChoice == "p"  ) {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Scissors
-    else if (playerChoice == 's') { 
-        if(computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a') {
+    else if (playerChoice == "s") { 
+        if(computerChoice == "n" || computerChoice == "h" || computerChoice == "t" || computerChoice == "l" || computerChoice == "o" || computerChoice == "p" || computerChoice == "a") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Snake
-    else if (playerChoice == 'n') { 
-        if(computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w') {
+    else if (playerChoice == "n") { 
+        if(computerChoice == "h" || computerChoice == "t" || computerChoice == "l" || computerChoice == "o" || computerChoice == "p" || computerChoice == "a" || computerChoice == "w") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Human
-    else if (playerChoice == 'h') { 
-        if(computerChoice == 't' || computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd') {
+    else if (playerChoice == "h") { 
+        if(computerChoice == "t" || computerChoice == "l" || computerChoice == "o" || computerChoice == "p" || computerChoice == "a" || computerChoice == "w" || computerChoice == "d") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Tree
-    else if (playerChoice == 't') { 
-        if(computerChoice == 'l' || computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e') {
+    else if (playerChoice == "t") { 
+        if(computerChoice == "l" || computerChoice == "o" || computerChoice == "p" || computerChoice == "a" || computerChoice == "w" || computerChoice == "d" || computerChoice == "e") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Wolf
-    else if (playerChoice == 'l') { 
-        if(computerChoice == 'o' || computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i') {
+    else if (playerChoice == "l") { 
+        if(computerChoice == "o" || computerChoice == "p" || computerChoice == "a" || computerChoice == "w" || computerChoice == "d" || computerChoice == "e"|| computerChoice == "i") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Sponge
-    else if (playerChoice == 'o') { 
-        if(computerChoice == 'p' || computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g') {
+    else if (playerChoice == "o") { 
+        if(computerChoice == "p" || computerChoice == "a" || computerChoice == "w" || computerChoice == "d" || computerChoice == "e"|| computerChoice == "i" || computerChoice == "g") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Paper
-    else if (playerChoice == 'p') { 
-        if(computerChoice == 'a' || computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r') {
+    else if (playerChoice == "p") { 
+        if(computerChoice == "a" || computerChoice == "w" || computerChoice == "d" || computerChoice == "e"|| computerChoice == "i" || computerChoice == "g" || computerChoice == "r") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Air
-    else if (playerChoice == 'a') { 
-        if(computerChoice == 'w' || computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f') {
+    else if (playerChoice == "a") { 
+        if(computerChoice == "w" || computerChoice == "d" || computerChoice == "e"|| computerChoice == "i" || computerChoice == "g" || computerChoice == "r" || computerChoice == "f") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Water
-    else if (playerChoice == 'w') { 
-        if(computerChoice == 'd' || computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' ) {
+    else if (playerChoice == "w") { 
+        if(computerChoice == "d" || computerChoice == "e"|| computerChoice == "i" || computerChoice == "g" || computerChoice == "r" || computerChoice == "f" || computerChoice == "s" ) {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Dragon
-    else if (playerChoice == 'd') { 
-        if(computerChoice == 'e'|| computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' ) {
+    else if (playerChoice == "d") { 
+        if(computerChoice == "e"|| computerChoice == "i" || computerChoice == "g" || computerChoice == "r" || computerChoice == "f" || computerChoice == "s" || computerChoice == "n" ) {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Devil
-    else if (playerChoice == 'e') { 
-        if(computerChoice == 'i' || computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' ) {
+    else if (playerChoice == "e") { 
+        if(computerChoice == "i" || computerChoice == "g" || computerChoice == "r" || computerChoice == "f" || computerChoice == "s" || computerChoice == "n" || computerChoice == "h" ) {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Lightning
-    else if (playerChoice == 'i') { 
-        if(computerChoice == 'g' || computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't') {
+    else if (playerChoice == "i") { 
+        if(computerChoice == "g" || computerChoice == "r" || computerChoice == "f" || computerChoice == "s" || computerChoice == "n" || computerChoice == "h" || computerChoice == "t") {
             result = "youWin";
         }
         else result = "youLose";
     }
     //Gun
-    else if (playerChoice == 'g') { 
-        if(computerChoice == 'r' || computerChoice == 'f' || computerChoice == 's' || computerChoice == 'n' || computerChoice == 'h' || computerChoice == 't' || computerChoice == 'l') {
+    else if (playerChoice == "g") { 
+        if(computerChoice == "r" || computerChoice == "f" || computerChoice == "s" || computerChoice == "n" || computerChoice == "h" || computerChoice == "t" || computerChoice == "l") {
             result = "youWin";
         }
         else result = "youLose";
