@@ -35,7 +35,7 @@ func _on_mainmenu_pressed() -> void:
 func _on_playagain_pressed() -> void:
 	get_tree().change_scene_to_file("res://gameplay-animation.tscn")
 	
-func show_comp_animation(computer):
+func show_comp_animation(player, computer, winner_decision):
 	var gameplay_background = get_node("/root/Gameplay/bg1")
 	var bato_bato_pick = get_node("/root/Gameplay/initialAni")
 	
