@@ -1,6 +1,7 @@
-[gd_scene load_steps=107 format=3 uid="uid://bim2khteqjvpf"]
+[gd_scene load_steps=106 format=3 uid="uid://bim2khteqjvpf"]
 
-[ext_resource type="Texture2D" uid="uid://dlhq4rsitrkxn" path="res://backgroundd/7th Page UI (2).png" id="2_vsmoa"]
+[ext_resource type="Texture2D" uid="uid://drdonhsgd36qq" path="res://backgroundd/7th Page UI (1).png" id="1_ppmse"]
+[ext_resource type="Texture2D" uid="uid://ca457ryd3vf2d" path="res://gameplayAnimation/(No BG) Gameplay.png" id="2_qrxww"]
 [ext_resource type="Theme" uid="uid://ckms5mawjhmhu" path="res://gameplay-animation.tres" id="3_mxtoj"]
 [ext_resource type="Texture2D" uid="uid://dbtxkqyf3ucvh" path="res://GAME BUTTONS/ROCK(DEFAULT).png" id="7_iwmrq"]
 [ext_resource type="Texture2D" uid="uid://cmm6n7ltcjx2t" path="res://GAME BUTTONS/ROCK(HOVER).png" id="8_hh7fb"]
@@ -29,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://cskrcvw7axlqg" path="res://buttons/(No BG) Play Again.png" id="24_d0iqd"]
 [ext_resource type="Texture2D" uid="uid://cjukts7e0ulqr" path="res://hand-icons/boss animation/start-up/frame2-boss.png" id="24_vkx2e"]
 [ext_resource type="Texture2D" uid="uid://cbjuc4lgkqquc" path="res://hand-icons/boss animation/start-up/Rock-boss.png" id="25_7yxql"]
-[ext_resource type="Texture2D" uid="uid://bexir68kty68d" path="res://backgroundd/(No BG) Gameplay2.png" id="25_lqng6"]
 [ext_resource type="Texture2D" uid="uid://djn3is8s4h3o3" path="res://hand-icons/player-hand-animation/Paper-player.png" id="25_pyv6m"]
 [ext_resource type="Texture2D" uid="uid://q67pfcgx5ob2" path="res://buttons/(No BG) Play Again (2).png" id="25_v1dx1"]
 [ext_resource type="Texture2D" uid="uid://x60bdmcms47f" path="res://buttons/(No BG) Pause - Leave.png" id="26_7t7os"]
@@ -69,10 +69,9 @@
 [ext_resource type="Texture2D" uid="uid://d3x1cxeu6gvlw" path="res://hand-icons/boss animation/start-up/Lightning-boss.png" id="38_kf7ld"]
 [ext_resource type="Texture2D" uid="uid://blskmlk3ac3om" path="res://hand-icons/player-hand-animation/Gun-player.png" id="38_yxtvx"]
 [ext_resource type="Texture2D" uid="uid://f0qieskm6ydq" path="res://hand-icons/boss animation/start-up/Gun-boss.png" id="39_5ass8"]
-[ext_resource type="FontFile" uid="uid://baeji5wb02tse" path="res://MultiTypePixel-Display.otf" id="59_8fodr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoke"]
-texture = ExtResource("2_vsmoa")
+texture = ExtResource("1_ppmse")
 modulate_color = Color(0.808998, 0.808998, 0.808998, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l6xda"]
@@ -111,7 +110,7 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy175"]
-texture = ExtResource("25_lqng6")
+texture = ExtResource("2_qrxww")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnhg5"]
 
@@ -278,42 +277,6 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4j8u"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("23_1chq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_1chq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_43348")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_43348")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_1chq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_1chq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_43348")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_43348")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_1chq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_1chq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_43348")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_43348")
-}, {
 "duration": 1.0,
 "texture": ExtResource("23_1chq2")
 }, {
@@ -2583,25 +2546,23 @@ theme = ExtResource("3_mxtoj")
 
 [node name="PlayerScore" type="RichTextLabel" parent="ScoreBoardControl"]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 125.0
-offset_right = 183.0
-offset_bottom = 206.0
+offset_left = 73.0
+offset_top = 67.0
+offset_right = 227.0
+offset_bottom = 129.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 18
-text = "Player
+text = "Player:
 0 / 5"
 script = ExtResource("34_twy1p")
 
 [node name="CompScore" type="RichTextLabel" parent="ScoreBoardControl"]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 207.0
-offset_right = 222.0
-offset_bottom = 268.0
+offset_left = 73.0
+offset_top = 157.0
+offset_right = 235.0
+offset_bottom = 218.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 18
-text = "Computer
+text = "Computer:
 0 / 5"
 script = ExtResource("35_vvvev")
 
@@ -2907,9 +2868,9 @@ autoplay = "Gun"
 [node name="ContinuePrompt" type="RichTextLabel" parent="bg1"]
 layout_mode = 0
 offset_left = 323.0
-offset_top = 428.0
+offset_top = 418.0
 offset_right = 825.0
-offset_bottom = 508.0
+offset_bottom = 498.0
 theme = ExtResource("3_mxtoj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
@@ -2918,30 +2879,6 @@ text = "[center]
 [/center]"
 fit_content = true
 scroll_active = false
-
-[node name="YOU" type="RichTextLabel" parent="bg1"]
-layout_mode = 0
-offset_left = 371.0
-offset_top = 168.0
-offset_right = 456.0
-offset_bottom = 208.0
-theme = ExtResource("3_mxtoj")
-theme_override_colors/default_color = Color(0, 0, 1, 1)
-theme_override_fonts/bold_font = ExtResource("59_8fodr")
-theme_override_font_sizes/normal_font_size = 30
-text = "YOU"
-
-[node name="CPU" type="RichTextLabel" parent="bg1"]
-layout_mode = 0
-offset_left = 703.0
-offset_top = 168.0
-offset_right = 793.0
-offset_bottom = 235.0
-theme = ExtResource("3_mxtoj")
-theme_override_colors/default_color = Color(1, 0, 0, 1)
-theme_override_fonts/bold_font = ExtResource("59_8fodr")
-theme_override_font_sizes/normal_font_size = 30
-text = "CPU"
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
