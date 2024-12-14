@@ -4,7 +4,13 @@ extends Control
 @onready var lose_texture = $youLose
 @onready var tie_texture = $youTied
 @onready var pause_panel = get_node("/root/Gameplay/pausePanel/")
+@onready var player_wins_label = $ScoreBoardControl/PlayerScore
+@onready var computer_wins_label = $ScoreBoardControl/CompScore
+
 var arps
+var player_wins = 0
+var computer_wins = 0
+var score_to_win = 5			#Change this var for higher difficulty
 
 func _ready():
 	arps = Arps.new()
@@ -18,23 +24,31 @@ func _ready():
 
 func handle_button_pressed(choice):
 	var playerChoice = choice
-	print("Player Choice:", playerChoice)
 	var computerChoice = arps.getComputerChoice()
-	print("Computer Choice:", computerChoice)
 	var result = arps.chooseWinner(playerChoice, computerChoice)
-	if result == null or result == "":
-		print("Error: chooseWinner returned an invalid value.")
-	else:
-		print("Result:", result)
+	# Record the scores
+	if result == "youWin":
+		player_wins += 1
+	elif result == "youLose":
+		computer_wins += 1
+	update_win_labels()
 	
 	var gameplay_background = get_node("/root/Gameplay/bg1")
 	gameplay_background.visible = true
 	# Let the animation play out
+	# Press any button to continue
 	
-	displayResult(result)
+	
+	# if either one wins, call end screen
+	if player_wins == score_to_win:
+		result == "youWin"
+		displayResult(result)
+	elif computer_wins == score_to_win:
+		result == "youLose"
+		displayResult(result)
 
 func _on_mainmenu_pressed() -> void:
-	get_tree().change_scene_to_file("res://main-menu.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://main-menu.tscn") 
 
 func _on_playagain_pressed() -> void:
 	get_tree().reload_current_scene()
@@ -56,7 +70,10 @@ func displayResult(result: String):
 			lose_texture.visible = true
 		"youTied":
 			tie_texture.visible = true
-
+	
+func update_win_labels():
+	player_wins_label.update_score(player_wins)
+	computer_wins_label.update_score(computer_wins)
 
 func _on_rock_pressed() -> void:
 	handle_button_pressed("r")

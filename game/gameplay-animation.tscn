@@ -1,7 +1,8 @@
-[gd_scene load_steps=103 format=3 uid="uid://bim2khteqjvpf"]
+[gd_scene load_steps=106 format=3 uid="uid://bim2khteqjvpf"]
 
 [ext_resource type="Texture2D" uid="uid://drdonhsgd36qq" path="res://backgroundd/7th Page UI (1).png" id="1_ppmse"]
 [ext_resource type="Texture2D" uid="uid://ca457ryd3vf2d" path="res://gameplayAnimation/(No BG) Gameplay.png" id="2_qrxww"]
+[ext_resource type="Theme" uid="uid://ckms5mawjhmhu" path="res://gameplay-animation.tres" id="3_mxtoj"]
 [ext_resource type="Texture2D" uid="uid://dbtxkqyf3ucvh" path="res://GAME BUTTONS/ROCK(DEFAULT).png" id="7_iwmrq"]
 [ext_resource type="Texture2D" uid="uid://cmm6n7ltcjx2t" path="res://GAME BUTTONS/ROCK(HOVER).png" id="8_hh7fb"]
 [ext_resource type="Script" path="res://gameplay.gd" id="8_nenia"]
@@ -56,8 +57,10 @@
 [ext_resource type="Texture2D" uid="uid://syu6vse20hmt" path="res://buttons/(No BG) Pause - Continue.png" id="33_i3ew5"]
 [ext_resource type="Texture2D" uid="uid://1tueks60our6" path="res://hand-icons/player-hand-animation/Water-player.png" id="34_f2xkq"]
 [ext_resource type="Texture2D" uid="uid://cvgjhwd4mdcu1" path="res://buttons/(Hover) Pause - Continue.png" id="34_pfvri"]
+[ext_resource type="Script" path="res://player_score.gd" id="34_twy1p"]
 [ext_resource type="Texture2D" uid="uid://b31aaglc627d8" path="res://hand-icons/boss animation/start-up/Air-boss.png" id="34_y2s8t"]
 [ext_resource type="Texture2D" uid="uid://cugef42w8llgr" path="res://hand-icons/boss animation/start-up/Water-boss.png" id="35_fg6u8"]
+[ext_resource type="Script" path="res://comp_score.gd" id="35_vvvev"]
 [ext_resource type="Texture2D" uid="uid://yc7wyut0kp7d" path="res://hand-icons/player-hand-animation/Dragon-player.png" id="35_xxx6p"]
 [ext_resource type="Texture2D" uid="uid://di3j2k8rjlfhj" path="res://hand-icons/player-hand-animation/Devil-player.png" id="36_bgv81"]
 [ext_resource type="Texture2D" uid="uid://co1rm8uwit6ep" path="res://hand-icons/boss animation/start-up/Dragon-boss.png" id="36_y4yi3"]
@@ -2533,6 +2536,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5hoke")
 
+[node name="ScoreBoardControl" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 29.0
+offset_right = 383.0
+offset_bottom = 331.0
+theme = ExtResource("3_mxtoj")
+
+[node name="PlayerScore" type="RichTextLabel" parent="ScoreBoardControl"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 67.0
+offset_right = 227.0
+offset_bottom = 129.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Player:
+0 / 5"
+script = ExtResource("34_twy1p")
+
+[node name="CompScore" type="RichTextLabel" parent="ScoreBoardControl"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 157.0
+offset_right = 235.0
+offset_bottom = 218.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Computer:
+0 / 5"
+script = ExtResource("35_vvvev")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 43.0
@@ -2823,6 +2856,21 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_qneyj")
 animation = &"Gun"
 autoplay = "Gun"
+
+[node name="ContinuePrompt" type="RichTextLabel" parent="bg1"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 418.0
+offset_right = 825.0
+offset_bottom = 498.0
+theme = ExtResource("3_mxtoj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]
+[pulse freq=1.0  ease=-2.0]Press any button to continue[/pulse]
+[/center]"
+fit_content = true
+scroll_active = false
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
