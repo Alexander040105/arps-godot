@@ -36,7 +36,7 @@ func _on_mainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main-menu.tscn") # Replace with function body.
 
 func _on_playagain_pressed() -> void:
-	get_tree().change_scene_to_file("res://gameplay-animation.tscn")
+	get_tree().reload_current_scene()
 	
 func show_comp_animation(player, computer, winner_decision):
 	var gameplay_background = get_node("/root/Gameplay/bg1")
