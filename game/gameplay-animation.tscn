@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bim2khteqjvpf"]
+[gd_scene load_steps=40 format=3 uid="uid://bim2khteqjvpf"]
 
 [ext_resource type="Texture2D" uid="uid://drdonhsgd36qq" path="res://backgroundd/7th Page UI (1).png" id="1_ppmse"]
 [ext_resource type="Texture2D" uid="uid://ca457ryd3vf2d" path="res://gameplayAnimation/(No BG) Gameplay.png" id="2_qrxww"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://uxwrmh5h17wb" path="res://backgroundd/(No BG) Pause Pop-Up.png" id="32_od133"]
 [ext_resource type="Texture2D" uid="uid://syu6vse20hmt" path="res://buttons/(No BG) Pause - Continue.png" id="33_i3ew5"]
 [ext_resource type="Texture2D" uid="uid://cvgjhwd4mdcu1" path="res://buttons/(Hover) Pause - Continue.png" id="34_pfvri"]
+[ext_resource type="Script" path="res://player_score.gd" id="34_twy1p"]
+[ext_resource type="Script" path="res://comp_score.gd" id="35_vvvev"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoke"]
 texture = ExtResource("1_ppmse")
@@ -379,6 +381,35 @@ texture_normal = ExtResource("26_7t7os")
 texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
 script = ExtResource("8_nenia")
+
+[node name="ScoreBoardControl" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 35.0
+offset_top = 20.0
+offset_right = 348.0
+offset_bottom = 322.0
+
+[node name="PlayerScore" type="RichTextLabel" parent="ScoreBoardControl"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 88.0
+offset_right = 154.0
+offset_bottom = 137.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Player:
+0 / 5"
+script = ExtResource("34_twy1p")
+
+[node name="CompScore" type="RichTextLabel" parent="ScoreBoardControl"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 155.0
+offset_right = 183.0
+offset_bottom = 235.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Computer:
+0 / 5"
+script = ExtResource("35_vvvev")
 
 [connection signal="pressed" from="HBoxContainer/Rock" to="." method="_on_rock_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scissors" to="." method="_on_scissors_pressed"]
