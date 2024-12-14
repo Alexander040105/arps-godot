@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://bim2khteqjvpf"]
+[gd_scene load_steps=42 format=3 uid="uid://bim2khteqjvpf"]
 
 [ext_resource type="Texture2D" uid="uid://drdonhsgd36qq" path="res://backgroundd/7th Page UI (1).png" id="1_ppmse"]
 [ext_resource type="Texture2D" uid="uid://ca457ryd3vf2d" path="res://gameplayAnimation/(No BG) Gameplay.png" id="2_qrxww"]
+[ext_resource type="Theme" uid="uid://ckms5mawjhmhu" path="res://gameplay-animation.tres" id="3_mxtoj"]
 [ext_resource type="Texture2D" uid="uid://dbtxkqyf3ucvh" path="res://GAME BUTTONS/ROCK(DEFAULT).png" id="7_iwmrq"]
 [ext_resource type="Texture2D" uid="uid://cmm6n7ltcjx2t" path="res://GAME BUTTONS/ROCK(HOVER).png" id="8_hh7fb"]
 [ext_resource type="Script" path="res://gameplay.gd" id="8_nenia"]
@@ -26,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cskrcvw7axlqg" path="res://buttons/(No BG) Play Again.png" id="24_d0iqd"]
 [ext_resource type="Texture2D" uid="uid://q67pfcgx5ob2" path="res://buttons/(No BG) Play Again (2).png" id="25_v1dx1"]
 [ext_resource type="Texture2D" uid="uid://x60bdmcms47f" path="res://buttons/(No BG) Pause - Leave.png" id="26_7t7os"]
+[ext_resource type="Script" path="res://bg_1.gd" id="26_fosaq"]
 [ext_resource type="Texture2D" uid="uid://c62vu3bgox4wp" path="res://buttons/(Hover) Pause - Leave.png" id="27_4ov6y"]
 [ext_resource type="Texture2D" uid="uid://cr6c2wcubhf5a" path="res://backgroundd/2 (Full Screen) 'You Won' Pop-Up (3).png" id="28_mfdgi"]
 [ext_resource type="Texture2D" uid="uid://b76uekc6qt8s0" path="res://buttons/(No BG) Pause Button.png" id="30_bbfju"]
@@ -39,9 +41,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoke"]
 texture = ExtResource("1_ppmse")
 modulate_color = Color(0.808998, 0.808998, 0.808998, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy175"]
-texture = ExtResource("2_qrxww")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l6xda"]
 animations = [{
@@ -78,6 +77,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy175"]
+texture = ExtResource("2_qrxww")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78kp3"]
 bg_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
 
@@ -97,6 +99,36 @@ offset_bottom = 647.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5hoke")
+
+[node name="ScoreBoardControl" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 29.0
+offset_right = 383.0
+offset_bottom = 331.0
+theme = ExtResource("3_mxtoj")
+
+[node name="PlayerScore" type="RichTextLabel" parent="ScoreBoardControl"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 67.0
+offset_right = 227.0
+offset_bottom = 129.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Player:
+0 / 5"
+script = ExtResource("34_twy1p")
+
+[node name="CompScore" type="RichTextLabel" parent="ScoreBoardControl"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 157.0
+offset_right = 235.0
+offset_bottom = 218.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Computer:
+0 / 5"
+script = ExtResource("35_vvvev")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -169,14 +201,6 @@ texture_normal = ExtResource("12_rftqh")
 texture_pressed = ExtResource("13_x4d6t")
 script = ExtResource("8_nenia")
 
-[node name="bg1" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 647.0
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
-
 [node name="boss_animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(948, 161)
 scale = Vector2(1.5, 1.5)
@@ -184,6 +208,30 @@ sprite_frames = SubResource("SpriteFrames_l6xda")
 animation = &"boss_animation"
 autoplay = "boss_animation"
 frame_progress = 0.92094
+
+[node name="bg1" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
+script = ExtResource("26_fosaq")
+
+[node name="ContinuePrompt" type="RichTextLabel" parent="bg1"]
+visible = false
+layout_mode = 0
+offset_left = 322.0
+offset_top = 421.0
+offset_right = 825.0
+offset_bottom = 507.0
+theme = ExtResource("3_mxtoj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]
+[pulse freq=1.0 ease=-2.0]Press any button to continue[/pulse]
+[/center]"
+fit_content = true
+scroll_active = false
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
@@ -381,35 +429,6 @@ texture_normal = ExtResource("26_7t7os")
 texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
 script = ExtResource("8_nenia")
-
-[node name="ScoreBoardControl" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 35.0
-offset_top = 20.0
-offset_right = 348.0
-offset_bottom = 322.0
-
-[node name="PlayerScore" type="RichTextLabel" parent="ScoreBoardControl"]
-layout_mode = 0
-offset_left = 88.0
-offset_top = 88.0
-offset_right = 154.0
-offset_bottom = 137.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Player:
-0 / 5"
-script = ExtResource("34_twy1p")
-
-[node name="CompScore" type="RichTextLabel" parent="ScoreBoardControl"]
-layout_mode = 0
-offset_left = 89.0
-offset_top = 155.0
-offset_right = 183.0
-offset_bottom = 235.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Computer:
-0 / 5"
-script = ExtResource("35_vvvev")
 
 [connection signal="pressed" from="HBoxContainer/Rock" to="." method="_on_rock_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scissors" to="." method="_on_scissors_pressed"]

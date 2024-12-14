@@ -36,6 +36,8 @@ func handle_button_pressed(choice):
 	var gameplay_background = get_node("/root/Gameplay/bg1")
 	gameplay_background.visible = true
 	# Let the animation play out
+	# Press any button to continue
+	
 	
 	# if either one wins, call end screen
 	if player_wins == score_to_win:
@@ -46,7 +48,7 @@ func handle_button_pressed(choice):
 		displayResult(result)
 
 func _on_mainmenu_pressed() -> void:
-	get_tree().change_scene_to_file("res://main-menu.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://main-menu.tscn") 
 
 func _on_playagain_pressed() -> void:
 	get_tree().reload_current_scene()

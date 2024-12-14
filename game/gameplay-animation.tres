@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ckms5mawjhmhu"]
+
+[ext_resource type="FontFile" uid="uid://baeji5wb02tse" path="res://MultiTypePixel-Display.otf" id="1_3c0uo"]
+
+[resource]
+default_font = ExtResource("1_3c0uo")
+default_font_size = 21
