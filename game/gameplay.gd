@@ -3,6 +3,7 @@ extends Control
 @onready var win_texture = $youWon 
 @onready var lose_texture = $youLose
 @onready var tie_texture = $youTied
+@onready var pause_panel = get_node("/root/Gameplay/pausePanel/")
 var arps
 
 func _ready():
@@ -83,3 +84,10 @@ func _on_devil_pressed() -> void:
 
 func _on_dragon_pressed() -> void:
 	handle_button_pressed("d")
+
+
+func _on_pause_button_pressed() -> void:
+	pause_panel.set_visible(true)
+	
+func _on_continue_pressed() -> void:
+	pause_panel.set_visible(false)

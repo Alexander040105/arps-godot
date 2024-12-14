@@ -1,9 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://bim2khteqjvpf"]
 
-[ext_resource type="Texture2D" uid="uid://dcfxx1lbxab7k" path="res://gameplayAnimation/(No BG) Gameplay Start #1.1.png" id="1_0w8yb"]
 [ext_resource type="Texture2D" uid="uid://drdonhsgd36qq" path="res://backgroundd/7th Page UI (1).png" id="1_ppmse"]
 [ext_resource type="Texture2D" uid="uid://ca457ryd3vf2d" path="res://gameplayAnimation/(No BG) Gameplay.png" id="2_qrxww"]
-[ext_resource type="Texture2D" uid="uid://w42i3ini78fh" path="res://gameplayAnimation/(No BG) Gameplay Start #2.1.png" id="2_ru8ir"]
 [ext_resource type="Texture2D" uid="uid://dbtxkqyf3ucvh" path="res://GAME BUTTONS/ROCK(DEFAULT).png" id="7_iwmrq"]
 [ext_resource type="Texture2D" uid="uid://cmm6n7ltcjx2t" path="res://GAME BUTTONS/ROCK(HOVER).png" id="8_hh7fb"]
 [ext_resource type="Script" path="res://gameplay.gd" id="8_nenia"]
@@ -20,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://delt0ktkcgcf5" path="res://GAME BUTTONS/ELECTRIC(DEFAULT).png" id="18_3yh51"]
 [ext_resource type="Texture2D" uid="uid://c66vtpiqmsweg" path="res://GAME BUTTONS/FIRE(HOVER)2.png" id="19_6mku0"]
 [ext_resource type="Texture2D" uid="uid://qub738hpxa6f" path="res://GAME BUTTONS/DEVIL(DEFAULT).png" id="20_5twku"]
+[ext_resource type="Texture2D" uid="uid://cd73xqu04nwa3" path="res://sprites/boss/Dragon2.png" id="21_68e7a"]
 [ext_resource type="Texture2D" uid="uid://bp13cy6xm4sua" path="res://GAME BUTTONS/ELECTRIC(HOVER)2.png" id="21_yws5l"]
+[ext_resource type="Texture2D" uid="uid://srqm5gctv7ab" path="res://sprites/boss/Dragon.png" id="22_gam5d"]
 [ext_resource type="Texture2D" uid="uid://y2qa5xna2ywe" path="res://backgroundd/2 (Full Screen) 'You Won' Pop-Up (2).png" id="23_3s5d5"]
 [ext_resource type="Texture2D" uid="uid://dnpbhxapvsl75" path="res://GAME BUTTONS/DEVIL(HOVER)2.png" id="23_v5k2x"]
 [ext_resource type="Texture2D" uid="uid://cskrcvw7axlqg" path="res://buttons/(No BG) Play Again.png" id="24_d0iqd"]
@@ -45,83 +45,35 @@ texture = ExtResource("2_qrxww")
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0w8yb")
+"texture": ExtResource("21_68e7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ru8ir")
+"texture": ExtResource("21_68e7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_0w8yb")
+"texture": ExtResource("21_68e7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ru8ir")
+"texture": ExtResource("21_68e7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_0w8yb")
+"texture": ExtResource("21_68e7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ru8ir")
+"texture": ExtResource("22_gam5d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_0w8yb")
+"texture": ExtResource("22_gam5d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ru8ir")
+"texture": ExtResource("22_gam5d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ru8ir")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_0w8yb")
+"texture": ExtResource("21_68e7a")
 }],
-"loop": false,
-"name": &"animation1",
-"speed": 10.0
+"loop": true,
+"name": &"boss_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78kp3"]
@@ -223,12 +175,13 @@ offset_bottom = 647.0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
 
-[node name="initialAni" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(576, 323.5)
-scale = Vector2(0.342857, 0.342328)
+[node name="boss_animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(948, 161)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_l6xda")
-animation = &"animation1"
+animation = &"boss_animation"
+autoplay = "boss_animation"
+frame_progress = 0.92094
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
@@ -353,6 +306,18 @@ texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
 script = ExtResource("8_nenia")
 
+[node name="pauseButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 19.0
+offset_right = 163.0
+offset_bottom = 147.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("30_bbfju")
+texture_pressed = ExtResource("31_uma23")
+texture_hover = ExtResource("31_uma23")
+script = ExtResource("8_nenia")
+
 [node name="pausePanel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
@@ -415,18 +380,6 @@ texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
 script = ExtResource("8_nenia")
 
-[node name="pauseButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 19.0
-offset_right = 163.0
-offset_bottom = 147.0
-scale = Vector2(0.35, 0.35)
-texture_normal = ExtResource("30_bbfju")
-texture_pressed = ExtResource("31_uma23")
-texture_hover = ExtResource("31_uma23")
-script = ExtResource("8_nenia")
-
 [connection signal="pressed" from="HBoxContainer/Rock" to="." method="_on_rock_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scissors" to="." method="_on_scissors_pressed"]
 [connection signal="pressed" from="HBoxContainer/Paper" to="." method="_on_paper_pressed"]
@@ -442,6 +395,6 @@ script = ExtResource("8_nenia")
 [connection signal="pressed" from="youLose/HBoxContainer/Leave" to="." method="_on_mainmenu_pressed"]
 [connection signal="pressed" from="youTied/HBoxContainer/Play Again" to="." method="_on_playagain_pressed"]
 [connection signal="pressed" from="youTied/HBoxContainer/Leave" to="." method="_on_mainmenu_pressed"]
-[connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Continue" to="pausePanel/pauseRect/HBoxContainer/Continue" method="_on_continue_pressed"]
+[connection signal="pressed" from="pauseButton" to="pausePanel/pauseRect/HBoxContainer/Continue" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Continue" to="pauseButton" method="_on_continue_pressed"]
 [connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Leave" to="." method="_on_mainmenu_pressed"]
-[connection signal="pressed" from="pauseButton" to="pauseButton" method="_on_pause_button_pressed"]
