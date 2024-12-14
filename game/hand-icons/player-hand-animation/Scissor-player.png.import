@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yc7wyut0kp7d"
-path="res://.godot/imported/Dragon-player.png-a81dc7e59240cfabb4dba55dfff165f3.ctex"
+uid="uid://06kv4r7ydcyw"
+path="res://.godot/imported/Scissor-player.png-093e4f8e698aafb6ee4013e1dd4bfe00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hand-icons/player-hand-animation/Dragon-player.png"
-dest_files=["res://.godot/imported/Dragon-player.png-a81dc7e59240cfabb4dba55dfff165f3.ctex"]
+source_file="res://hand-icons/player-hand-animation/Scissor-player.png"
+dest_files=["res://.godot/imported/Scissor-player.png-093e4f8e698aafb6ee4013e1dd4bfe00.ctex"]
 
 [params]
 
