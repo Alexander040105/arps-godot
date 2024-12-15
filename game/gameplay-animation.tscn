@@ -2779,10 +2779,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 406.0
-offset_top = 320.0
-offset_right = -615.0
-offset_bottom = -227.0
+offset_left = 408.0
+offset_top = 334.0
+offset_right = -613.0
+offset_bottom = -213.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
@@ -2796,80 +2796,65 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_bnhg5")
 [node name="Rock-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_ph3gd")
-autoplay = "default"
 
 [node name="Paper-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_gyc3y")
-autoplay = "default"
 frame_progress = 0.720821
 
 [node name="Scissor-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_d4j8u")
-autoplay = "default"
 frame = 15
 frame_progress = 1.0
 
 [node name="Fire-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_hconk")
-autoplay = "default"
 
 [node name="Snake-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_x6uf8")
-autoplay = "default"
 
 [node name="Human-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_1ktvc")
-autoplay = "default"
 
 [node name="Tree-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_ry0sr")
-autoplay = "default"
 
 [node name="Wolf-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_xsf21")
-autoplay = "default"
 
 [node name="Sponge-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_1ftjq")
-autoplay = "default"
 
 [node name="Air-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_3a77r")
-autoplay = "default"
 
 [node name="Water-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_yb1h0")
-autoplay = "default"
 
 [node name="Dragon-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_bin0x")
-autoplay = "default"
 
 [node name="Devil-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_2b5o7")
-autoplay = "default"
 
 [node name="Lightning-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_3tge7")
-autoplay = "default"
 
 [node name="Gun-player" type="AnimatedSprite2D" parent="bg1/aniContainer/playerHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_tjyay")
-autoplay = "default"
 
 [node name="bossHands" type="Panel" parent="bg1/aniContainer"]
 layout_mode = 2
@@ -2880,7 +2865,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ee2po")
 visible = false
 sprite_frames = SubResource("SpriteFrames_8hoc1")
 animation = &"Rock"
-autoplay = "Rock"
 frame = 23
 frame_progress = 1.0
 
@@ -2888,7 +2872,6 @@ frame_progress = 1.0
 visible = false
 sprite_frames = SubResource("SpriteFrames_ms8lm")
 animation = &"Paper"
-autoplay = "Paper"
 frame = 23
 frame_progress = 1.0
 
@@ -2896,7 +2879,6 @@ frame_progress = 1.0
 visible = false
 sprite_frames = SubResource("SpriteFrames_23xrg")
 animation = &"Scissors"
-autoplay = "Scissors"
 frame = 23
 frame_progress = 1.0
 
@@ -2904,7 +2886,6 @@ frame_progress = 1.0
 visible = false
 sprite_frames = SubResource("SpriteFrames_7rthu")
 animation = &"Fire"
-autoplay = "Fire"
 frame = 23
 frame_progress = 1.0
 
@@ -2912,7 +2893,6 @@ frame_progress = 1.0
 visible = false
 sprite_frames = SubResource("SpriteFrames_7451h")
 animation = &"Snake"
-autoplay = "Snake"
 frame = 23
 frame_progress = 1.0
 
@@ -2920,21 +2900,18 @@ frame_progress = 1.0
 visible = false
 sprite_frames = SubResource("SpriteFrames_uvro1")
 animation = &"Human"
-autoplay = "Human"
 frame_progress = 1.0
 
 [node name="Tree-boss" type="AnimatedSprite2D" parent="bg1/aniContainer/bossHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_wif2s")
 animation = &"tree"
-autoplay = "tree"
 frame = 23
 frame_progress = 1.0
 
 [node name="Wolf-boss" type="AnimatedSprite2D" parent="bg1/aniContainer/bossHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_wo6k0")
-autoplay = "default"
 frame = 23
 frame_progress = 1.0
 
@@ -2942,21 +2919,18 @@ frame_progress = 1.0
 visible = false
 sprite_frames = SubResource("SpriteFrames_5qad7")
 animation = &"Sponge"
-autoplay = "Sponge"
 frame_progress = 1.0
 
 [node name="Air-boss" type="AnimatedSprite2D" parent="bg1/aniContainer/bossHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_gf7dv")
 animation = &"Air"
-autoplay = "Air"
 frame_progress = 1.0
 
 [node name="Water-boss" type="AnimatedSprite2D" parent="bg1/aniContainer/bossHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_ua03n")
 animation = &"Water"
-autoplay = "Water"
 frame = 23
 frame_progress = 1.0
 
@@ -2964,27 +2938,23 @@ frame_progress = 1.0
 visible = false
 sprite_frames = SubResource("SpriteFrames_di2vc")
 animation = &"Dragon"
-autoplay = "Dragon"
 frame_progress = 1.0
 
 [node name="Devil-boss" type="AnimatedSprite2D" parent="bg1/aniContainer/bossHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_rp0sb")
 animation = &"Devil"
-autoplay = "Devil"
 frame_progress = 1.0
 
 [node name="Lightning-boss" type="AnimatedSprite2D" parent="bg1/aniContainer/bossHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_yx326")
 animation = &"Lightning"
-autoplay = "Lightning"
 
 [node name="Gun-boss" type="AnimatedSprite2D" parent="bg1/aniContainer/bossHands"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_qneyj")
 animation = &"Gun"
-autoplay = "Gun"
 
 [node name="ContinuePrompt" type="RichTextLabel" parent="bg1"]
 visible = false
@@ -3005,31 +2975,42 @@ scroll_active = false
 [node name="YOU" type="RichTextLabel" parent="bg1"]
 clip_contents = false
 layout_mode = 0
-offset_left = 234.0
-offset_top = 156.0
-offset_right = 579.0
-offset_bottom = 205.0
+offset_left = 263.0
+offset_top = 167.0
+offset_right = 564.0
+offset_bottom = 208.0
 theme = ExtResource("3_mxtoj")
 theme_override_colors/default_color = Color(0, 0, 1, 1)
 theme_override_fonts/bold_font = ExtResource("59_8fodr")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[center]YOU[/center]"
 fit_content = true
+scroll_active = false
 
 [node name="CPU" type="RichTextLabel" parent="bg1"]
 layout_mode = 0
-offset_left = 584.0
-offset_top = 155.0
-offset_right = 918.0
-offset_bottom = 206.0
+offset_left = 592.0
+offset_top = 168.0
+offset_right = 892.0
+offset_bottom = 208.0
 theme = ExtResource("3_mxtoj")
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_fonts/bold_font = ExtResource("59_8fodr")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[center]CPU[/center]"
 fit_content = true
+
+[node name="ResultIndicator" type="RichTextLabel" parent="bg1"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 464.0
+offset_right = 917.0
+offset_bottom = 518.0
+theme = ExtResource("3_mxtoj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
@@ -3228,6 +3209,9 @@ texture_pressed = ExtResource("27_4ov6y")
 texture_hover = ExtResource("27_4ov6y")
 script = ExtResource("8_nenia")
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="HBoxContainer/Rock" to="." method="_on_rock_pressed"]
 [connection signal="pressed" from="HBoxContainer/Scissors" to="." method="_on_scissors_pressed"]
 [connection signal="pressed" from="HBoxContainer/Paper" to="." method="_on_paper_pressed"]
@@ -3241,6 +3225,21 @@ script = ExtResource("8_nenia")
 [connection signal="pressed" from="HBoxContainer2/Gun" to="." method="_on_gun_pressed"]
 [connection signal="pressed" from="HBoxContainer2/Sponge" to="." method="_on_sponge_pressed"]
 [connection signal="pressed" from="HBoxContainer2/Wolf" to="." method="_on_wolf_pressed"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Rock-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Paper-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Scissor-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Fire-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Snake-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Human-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Tree-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Wolf-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Sponge-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Air-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Water-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Dragon-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Devil-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Lightning-player" to="." method="_on_hands_animation_finished"]
+[connection signal="animation_finished" from="bg1/aniContainer/playerHands/Gun-player" to="." method="_on_hands_animation_finished"]
 [connection signal="pressed" from="youWon/HBoxContainer/Play Again" to="." method="_on_playagain_pressed"]
 [connection signal="pressed" from="youWon/HBoxContainer/Leave" to="." method="_on_mainmenu_pressed"]
 [connection signal="pressed" from="youLose/HBoxContainer/Play Again" to="." method="_on_playagain_pressed"]
@@ -3250,3 +3249,4 @@ script = ExtResource("8_nenia")
 [connection signal="pressed" from="pauseButton" to="pausePanel/pauseRect/HBoxContainer/Continue" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Continue" to="pauseButton" method="_on_continue_pressed"]
 [connection signal="pressed" from="pausePanel/pauseRect/HBoxContainer/Leave" to="." method="_on_mainmenu_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
