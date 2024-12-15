@@ -1,15 +1,18 @@
 extends Control
 
-@onready var win_texture = $youWon 
-@onready var lose_texture = $youLose
-@onready var tie_texture = $youTied
+@onready var win_texture = get_node("/root/Gameplay/youWon")
+@onready var lose_texture = get_node("/root/Gameplay/youLose")
+@onready var tie_texture = get_node("/root/Gameplay/youTied")
 @onready var pause_panel = get_node("/root/Gameplay/pausePanel/")
 @onready var player_wins_label = $ScoreBoardControl/PlayerScore
 @onready var computer_wins_label = $ScoreBoardControl/CompScore
 @onready var animationContainer = get_node("/root/Gameplay/bg1/")
 @onready var player_choice_indic = get_node("/root/Gameplay/bg1/YOU")
 @onready var comp_choice_indic = get_node("/root/Gameplay/bg1/CPU")
+@onready var result_indic = get_node("/root/Gameplay/bg1/ResultIndicator")
 @onready var continue_prompt = get_node("/root/Gameplay/bg1/ContinuePrompt")
+@onready var hbox1 = get_node("/root/Gameplay/HBoxContainer")
+@onready var hbox2 = get_node("/root/Gameplay/HBoxContainer2")
 
 #sounds variable
 @onready var game_music = get_node("/root/Gameplay/GameMusic/")
@@ -59,56 +62,40 @@ Paper_boss, Scissor_boss, Fire_boss, Snake_boss, Human_boss, Tree_boss, Wolf_bos
 Air_boss, Water_boss, Dragon_boss, Devil_boss, Lightning_boss, Gun_boss]
 
 var arps
-var player_wins = 0
-var computer_wins = 0
 var score_to_win = 5			#Change this var for higher difficulty
+var computerChoice
+var playerChoice
+var result
+var buttons = []
 
 func _ready():
 	start_sound.play()
 	arps = Arps.new()
-	# Ensure all textures are hidden initially
-	if win_texture:
-		win_texture.visible = false
-	if lose_texture:
-		lose_texture.visible = false
-	if tie_texture:
-		tie_texture.visible = false
-		
+
 	if game_music.is_playing() == false:
 		game_music.play()
 
 func handle_button_pressed(choice):
 	button_sound.play()
-	var computerChoice = arps.getComputerChoice()
-	var playerChoice = choice
+	computerChoice = arps.getComputerChoice()
+	playerChoice = choice
 	#computer_animation(computerChoice)
-	var result = arps.chooseWinner(playerChoice, computerChoice)
+	result = arps.chooseWinner(playerChoice, computerChoice)
 	# Record the scores
 	if result == "youWin":
-		player_wins += 1
+		Global.player_wins += 1
 	elif result == "youLose":
-		computer_wins += 1
-
-		
-	# Update the choice indicators
-	update_indicators(playerChoice, computerChoice)
+		Global.computer_wins += 1
 	
 	#show animation
+	player_choice_indic.text = "[center]...[/center]"
+	comp_choice_indic.text = "[center]...[/center]"
+	result_indic.text = "[center] [/center]"
+	disable_buttons()
 	animationContainer.visible = true
 	players_animation(playerChoice, computerChoice)
-	update_win_labels()
+	$Timer.start(2)
 	
-	# Prompt: Press any button to continue
-	continue_prompt.visible = true
-	set_process_input(true)
-
-	if player_wins == score_to_win:
-		result == "youWin"
-		displayResult(result)
-	elif computer_wins == score_to_win:
-		result == "youLose"
-		displayResult(result)
-		
 func update_indicators(player, computer):
 	var playIndic = player
 	var compIndic = computer
@@ -177,17 +164,25 @@ func update_indicators(player, computer):
 
 func _input(event):
 	if continue_prompt.visible and event.is_pressed():
-		gain_point.play()
+		if Global.player_wins == score_to_win:
+			Global.player_wins = 0
+			Global.computer_wins = 0
+			displayResult("youWin")
+		elif Global.computer_wins == score_to_win:
+			Global.player_wins = 0
+			Global.computer_wins = 0
+			displayResult("youLose")
+		
+		accept_event()
+		button_sound.play()
 		continue_prompt.visible = false  
 		animationContainer.visible = false 
 		set_process_input(false)
 		
 		for players_hand_names in hands_names:
 			players_hand_names.set_visible(false)
-	
-	
 		
-		
+		enable_buttons()
 
 func _on_mainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main-menu.tscn") 
@@ -195,7 +190,6 @@ func _on_mainmenu_pressed() -> void:
 func _on_playagain_pressed() -> void:
 	get_tree().reload_current_scene()
 	
-
 func displayResult(result: String):
 	# Show the appropriate result texture
 	match result:
@@ -211,10 +205,9 @@ func displayResult(result: String):
 			tie_texture.visible = true
 	
 func update_win_labels():
-	player_wins_label.update_score(player_wins)
-	computer_wins_label.update_score(computer_wins)
+	player_wins_label.update_score(Global.player_wins)
+	computer_wins_label.update_score(Global.computer_wins)
 	
-
 func _on_rock_pressed() -> void:
 	handle_button_pressed("r")
 
@@ -255,9 +248,11 @@ func _on_wolf_pressed() -> void:
 	handle_button_pressed("l")
 
 func _on_pause_button_pressed() -> void:
+	button_sound.play()
 	pause_panel.set_visible(true)
 	
 func _on_continue_pressed() -> void:
+	button_sound.play()
 	pause_panel.set_visible(false)
 	
 #animations
@@ -308,7 +303,6 @@ func players_animation(player_choice, computer_choice):
 	elif player_choice == "g":
 		Gun_player.set_visible(true)
 		Gun_player.play()
-		
 
 	if computer_choice == "r":
 			Rock_boss.set_visible(true)
@@ -356,5 +350,39 @@ func players_animation(player_choice, computer_choice):
 		Gun_boss.set_visible(true)
 		Gun_boss.play()
 
-func _on_hands_animation_finished() -> void:
-	pass # Replace with function body.
+func _on_Timer_timeout() -> void:
+	gain_point.play()
+	# Prompt: Press any button to continue
+	continue_prompt.visible = true
+	set_process_input(true)
+	
+	# Update the result indicator
+	match result:
+		"youWin":
+			result_indic.text = "[center]You won![/center]"
+		"youLose":
+			result_indic.text = "[center]You lost![/center]"
+		"youTied":
+			result_indic.text = "[center]You tied![/center]"
+	
+	# Update the choice indicators
+	update_indicators(playerChoice, computerChoice)
+	update_win_labels()
+
+func disable_buttons():
+	for button in hbox1.get_children():
+		if button is Button:
+			button.disabled = true
+	
+	for button in hbox2.get_children():
+		if button is Button:
+			button.disabled = true
+
+func enable_buttons():
+	for button in hbox1.get_children():
+		if button is Button:
+			button.disabled = false
+			
+	for button in hbox1.get_children():
+		if button is Button:
+			button.disabled = false
