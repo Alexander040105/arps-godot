@@ -2687,8 +2687,10 @@ frame_progress = 0.92094
 [node name="bg1" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 647.0
+offset_left = -1.0
+offset_top = 5.0
+offset_right = 1151.0
+offset_bottom = 652.0
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_yy175")
 
@@ -2905,11 +2907,12 @@ animation = &"Gun"
 autoplay = "Gun"
 
 [node name="ContinuePrompt" type="RichTextLabel" parent="bg1"]
+visible = false
 layout_mode = 0
-offset_left = 323.0
-offset_top = 428.0
-offset_right = 825.0
-offset_bottom = 508.0
+offset_left = 326.0
+offset_top = 545.0
+offset_right = 828.0
+offset_bottom = 625.0
 theme = ExtResource("3_mxtoj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
@@ -2920,28 +2923,33 @@ fit_content = true
 scroll_active = false
 
 [node name="YOU" type="RichTextLabel" parent="bg1"]
+clip_contents = false
 layout_mode = 0
-offset_left = 371.0
-offset_top = 168.0
-offset_right = 456.0
-offset_bottom = 208.0
+offset_left = 234.0
+offset_top = 156.0
+offset_right = 579.0
+offset_bottom = 205.0
 theme = ExtResource("3_mxtoj")
 theme_override_colors/default_color = Color(0, 0, 1, 1)
 theme_override_fonts/bold_font = ExtResource("59_8fodr")
 theme_override_font_sizes/normal_font_size = 30
-text = "YOU"
+bbcode_enabled = true
+text = "[center]YOU[/center]"
+fit_content = true
 
 [node name="CPU" type="RichTextLabel" parent="bg1"]
 layout_mode = 0
-offset_left = 703.0
-offset_top = 168.0
-offset_right = 793.0
-offset_bottom = 235.0
+offset_left = 584.0
+offset_top = 155.0
+offset_right = 918.0
+offset_bottom = 206.0
 theme = ExtResource("3_mxtoj")
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_fonts/bold_font = ExtResource("59_8fodr")
 theme_override_font_sizes/normal_font_size = 30
-text = "CPU"
+bbcode_enabled = true
+text = "[center]CPU[/center]"
+fit_content = true
 
 [node name="youWon" type="TextureRect" parent="."]
 visible = false
