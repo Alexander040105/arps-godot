@@ -11,6 +11,14 @@ extends Control
 @onready var comp_choice_indic = get_node("/root/Gameplay/bg1/CPU")
 @onready var continue_prompt = get_node("/root/Gameplay/bg1/ContinuePrompt")
 
+#sounds variable
+@onready var game_music = get_node("/root/Gameplay/GameMusic/")
+@onready var start_sound = get_node("/root/Gameplay/StartSound/")
+@onready var button_sound = get_node("/root/Gameplay/ButtonSound/")
+@onready var gain_point = get_node("/root/Gameplay/GainPoint/")
+@onready var you_won_sound = get_node("/root/Gameplay/YouWonSound/")
+@onready var game_over_sound = get_node("/root/Gameplay/GameOverSound/")
+
 #Player animations
 @onready var Rock_player = get_node("/root/Gameplay/bg1/aniContainer/playerHands/Rock-player/")
 @onready var Paper_player = get_node("/root/Gameplay/bg1/aniContainer/playerHands/Paper-player/")
@@ -45,12 +53,18 @@ extends Control
 @onready var Lightning_boss = get_node("/root/Gameplay/bg1/aniContainer/bossHands/Lightning-boss/")
 @onready var Gun_boss = get_node("/root/Gameplay/bg1/aniContainer/bossHands/Gun-boss/")
 
+@onready var hands_names = [Rock_player, Paper_player, Scissor_player, Fire_player, Snake_player, Human_player, Tree_player,
+Wolf_player, Sponge_player, Air_player, Water_player, Dragon_player, Devil_player, Lightning_player, Gun_player, Rock_boss, 
+Paper_boss, Scissor_boss, Fire_boss, Snake_boss, Human_boss, Tree_boss, Wolf_boss, Sponge_boss, 
+Air_boss, Water_boss, Dragon_boss, Devil_boss, Lightning_boss, Gun_boss]
+
 var arps
 var player_wins = 0
 var computer_wins = 0
 var score_to_win = 5			#Change this var for higher difficulty
 
 func _ready():
+	start_sound.play()
 	arps = Arps.new()
 	# Ensure all textures are hidden initially
 	if win_texture:
@@ -59,8 +73,12 @@ func _ready():
 		lose_texture.visible = false
 	if tie_texture:
 		tie_texture.visible = false
+		
+	if game_music.is_playing() == false:
+		game_music.play()
 
 func handle_button_pressed(choice):
+	button_sound.play()
 	var computerChoice = arps.getComputerChoice()
 	var playerChoice = choice
 	#computer_animation(computerChoice)
@@ -70,11 +88,12 @@ func handle_button_pressed(choice):
 		player_wins += 1
 	elif result == "youLose":
 		computer_wins += 1
-	
+
+		
 	# Update the choice indicators
 	update_indicators(playerChoice, computerChoice)
 	
-	# Show animation
+	#show animation
 	animationContainer.visible = true
 	players_animation(playerChoice, computerChoice)
 	update_win_labels()
@@ -82,8 +101,7 @@ func handle_button_pressed(choice):
 	# Prompt: Press any button to continue
 	continue_prompt.visible = true
 	set_process_input(true)
-	
-	# if either one wins, call end screen
+
 	if player_wins == score_to_win:
 		result == "youWin"
 		displayResult(result)
@@ -159,9 +177,17 @@ func update_indicators(player, computer):
 
 func _input(event):
 	if continue_prompt.visible and event.is_pressed():
+		gain_point.play()
 		continue_prompt.visible = false  
-		animationContainer.visible = false  
+		animationContainer.visible = false 
 		set_process_input(false)
+		
+		for players_hand_names in hands_names:
+			players_hand_names.set_visible(false)
+	
+	
+		
+		
 
 func _on_mainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main-menu.tscn") 
@@ -169,20 +195,17 @@ func _on_mainmenu_pressed() -> void:
 func _on_playagain_pressed() -> void:
 	get_tree().reload_current_scene()
 	
-func show_comp_animation(player, computer, winner_decision):
-	var gameplay_background = get_node("/root/Gameplay/bg1")
-	var bato_bato_pick = get_node("/root/Gameplay/initialAni")
-	
-	if computer == 'r':
-		bato_bato_pick.visible = true
-		
 
 func displayResult(result: String):
 	# Show the appropriate result texture
 	match result:
 		"youWin":
+			game_music.stop()
+			you_won_sound.play()
 			win_texture.visible = true
 		"youLose":
+			game_music.stop()
+			game_over_sound.play()
 			lose_texture.visible = true
 		"youTied":
 			tie_texture.visible = true
@@ -190,6 +213,7 @@ func displayResult(result: String):
 func update_win_labels():
 	player_wins_label.update_score(player_wins)
 	computer_wins_label.update_score(computer_wins)
+	
 
 func _on_rock_pressed() -> void:
 	handle_button_pressed("r")
@@ -217,6 +241,18 @@ func _on_devil_pressed() -> void:
 
 func _on_dragon_pressed() -> void:
 	handle_button_pressed("d")
+
+func _on_human_pressed() -> void:
+	handle_button_pressed("h")
+
+func _on_gun_pressed() -> void:
+	handle_button_pressed("g")
+	
+func _on_sponge_pressed() -> void:
+	handle_button_pressed("o") 
+	
+func _on_wolf_pressed() -> void:
+	handle_button_pressed("l")
 
 func _on_pause_button_pressed() -> void:
 	pause_panel.set_visible(true)
@@ -319,15 +355,6 @@ func players_animation(player_choice, computer_choice):
 	elif computer_choice == "g":
 		Gun_boss.set_visible(true)
 		Gun_boss.play()
-
-#func computer_animation(computer_choice):
-	
-		
-
-		
-
-	
-
 
 func _on_hands_animation_finished() -> void:
 	pass # Replace with function body.
