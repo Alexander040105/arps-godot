@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func update_score(score: int):
 	# Updates the label with the given score
-	text = str(score) + " / 5"
+	text = "Player\n" + str(score) + " / 5"

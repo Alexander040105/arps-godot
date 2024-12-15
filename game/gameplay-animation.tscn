@@ -3010,6 +3010,7 @@ offset_right = 917.0
 offset_bottom = 518.0
 theme = ExtResource("3_mxtoj")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 
 [node name="youWon" type="TextureRect" parent="."]
