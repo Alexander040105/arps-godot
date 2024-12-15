@@ -7,6 +7,9 @@ extends Control
 @onready var player_wins_label = $ScoreBoardControl/PlayerScore
 @onready var computer_wins_label = $ScoreBoardControl/CompScore
 @onready var animationContainer = get_node("/root/Gameplay/bg1/")
+@onready var player_choice_indic = get_node("/root/Gameplay/bg1/YOU")
+@onready var comp_choice_indic = get_node("/root/Gameplay/bg1/CPU")
+@onready var continue_prompt = get_node("/root/Gameplay/bg1/ContinuePrompt")
 
 #Player animations
 @onready var Rock_player = get_node("/root/Gameplay/bg1/aniContainer/playerHands/Rock-player/")
@@ -68,14 +71,17 @@ func handle_button_pressed(choice):
 	elif result == "youLose":
 		computer_wins += 1
 	
-	var gameplay_background = get_node("/root/Gameplay/bg1")
-	gameplay_background.visible = true
+	# Update the choice indicators
+	update_indicators(playerChoice, computerChoice)
+	
+	# Show animation
+	animationContainer.visible = true
 	players_animation(playerChoice, computerChoice)
 	update_win_labels()
 	
-	# Let the animation play out
-	# Press any button to continue
-	
+	# Prompt: Press any button to continue
+	continue_prompt.visible = true
+	set_process_input(true)
 	
 	# if either one wins, call end screen
 	if player_wins == score_to_win:
@@ -84,6 +90,78 @@ func handle_button_pressed(choice):
 	elif computer_wins == score_to_win:
 		result == "youLose"
 		displayResult(result)
+		
+func update_indicators(player, computer):
+	var playIndic = player
+	var compIndic = computer
+	match playIndic:
+		"r":
+			player_choice_indic.text = "[center]YOU: Rock[/center]"
+		"p":
+			player_choice_indic.text = "[center]YOU: Paper[/center]"
+		"s":
+			player_choice_indic.text = "[center]YOU: Scissors[/center]"
+		"f":
+			player_choice_indic.text = "[center]YOU: Fire[/center]"
+		"n":
+			player_choice_indic.text = "[center]YOU: Snake[/center]"
+		"h":
+			player_choice_indic.text = "[center]YOU: Human[/center]"
+		"t":
+			player_choice_indic.text = "[center]YOU: Tree[/center]"
+		"l":
+			player_choice_indic.text = "[center]YOU: Wolf[/center]"
+		"o":
+			player_choice_indic.text = "[center]YOU: Sponge[/center]"
+		"a":
+			player_choice_indic.text = "[center]YOU: Air[/center]"
+		"w":
+			player_choice_indic.text = "[center]YOU: Water[/center]"
+		"d":
+			player_choice_indic.text = "[center]YOU: Dragon[/center]"
+		"e":
+			player_choice_indic.text = "[center]YOU: Devil[/center]"
+		"i":
+			player_choice_indic.text = "[center]YOU: Lightning[/center]"
+		"g":
+			player_choice_indic.text = "[center]YOU: Gun[/center]"
+	match compIndic:
+		"r":
+			comp_choice_indic.text = "[center]CPU: Rock[/center]"
+		"p":
+			comp_choice_indic.text = "[center]CPU: Paper[/center]"
+		"s":
+			comp_choice_indic.text = "[center]CPU: Scissors[/center]"
+		"f":
+			comp_choice_indic.text = "[center]CPU: Fire[/center]"
+		"n":
+			comp_choice_indic.text = "[center]CPU: Snake[/center]"
+		"h":
+			comp_choice_indic.text = "[center]CPU: Human[/center]"
+		"t":
+			comp_choice_indic.text = "[center]CPU: Tree[/center]"
+		"l":
+			comp_choice_indic.text = "[center]CPU: Wolf[/center]"
+		"o":
+			comp_choice_indic.text = "[center]CPU: Sponge[/center]"
+		"a":
+			comp_choice_indic.text = "[center]CPU: Air[/center]"
+		"w":
+			comp_choice_indic.text = "[center]CPU: Water[/center]"
+		"d":
+			comp_choice_indic.text = "[center]CPU: Dragon[/center]"
+		"e":
+			comp_choice_indic.text = "[center]CPU: Devil[/center]"
+		"i":
+			comp_choice_indic.text = "[center]CPU: Lightning[/center]"
+		"g":
+			comp_choice_indic.text = "[center]CPU: Gun[/center]"
+
+func _input(event):
+	if continue_prompt.visible and event.is_pressed():
+		continue_prompt.visible = false  
+		animationContainer.visible = false  
+		set_process_input(false)
 
 func _on_mainmenu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main-menu.tscn") 
@@ -145,7 +223,6 @@ func _on_pause_button_pressed() -> void:
 	
 func _on_continue_pressed() -> void:
 	pause_panel.set_visible(false)
-	
 	
 #animations
 func players_animation(player_choice, computer_choice):
@@ -250,3 +327,7 @@ func players_animation(player_choice, computer_choice):
 		
 
 	
+
+
+func _on_hands_animation_finished() -> void:
+	pass # Replace with function body.
