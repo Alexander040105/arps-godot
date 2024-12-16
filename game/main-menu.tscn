@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wroa3umjsenr"]
+[gd_scene load_steps=14 format=3 uid="uid://wroa3umjsenr"]
 
 [ext_resource type="Texture2D" uid="uid://c0nndmousr2ei" path="res://backgroundd/2nd Page.png" id="1_7wkkq"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_pl48g"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://x60bdmcms47f" path="res://buttons/(No BG) Pause - Leave.png" id="6_elq8y"]
 [ext_resource type="Texture2D" uid="uid://c62vu3bgox4wp" path="res://buttons/(Hover) Pause - Leave.png" id="7_y5n5n"]
 [ext_resource type="AudioStream" uid="uid://dkap05bbigq6u" path="res://FINAL_MUSIC(BETA)/Eric Skiff - Underclocked (underunderclocked mix).mp3" id="9_3snbr"]
+[ext_resource type="Theme" uid="uid://ckms5mawjhmhu" path="res://gameplay-animation.tres" id="10_jf8h2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1oj7"]
 bg_color = Color(0.0100903, 0.0100903, 0.0100903, 1)
@@ -90,6 +91,17 @@ size_flags_vertical = 4
 texture_normal = ExtResource("6_elq8y")
 texture_pressed = ExtResource("7_y5n5n")
 texture_hover = ExtResource("7_y5n5n")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 599.0
+offset_right = 391.0
+offset_bottom = 667.0
+theme = ExtResource("10_jf8h2")
+theme_override_font_sizes/normal_font_size = 15
+text = "VER. 1.0.0.1
+Developed by: Aura404"
 
 [connection signal="pressed" from="VBoxContainer/start_button" to="VBoxContainer/start_button" method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="VBoxContainer/start_button" method="_on_quit_pressed"]

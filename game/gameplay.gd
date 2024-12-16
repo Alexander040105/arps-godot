@@ -253,6 +253,12 @@ func _on_sponge_pressed() -> void:
 	
 func _on_wolf_pressed() -> void:
 	handle_button_pressed("l")
+	
+func _on_snake_pressed() -> void:
+	handle_button_pressed("n")
+	
+func _on_tree_pressed() -> void:
+	handle_button_pressed("t")
 
 func _on_pause_button_pressed() -> void:
 	button_sound.play()
