@@ -14,6 +14,9 @@ extends Control
 @onready var hbox1 = get_node("/root/Gameplay/HBoxContainer")
 @onready var hbox2 = get_node("/root/Gameplay/HBoxContainer2")
 
+@onready var happy_boss_animation = get_node("/root/Gameplay/bossHappy/")
+@onready var angry_boss_animation = get_node("/root/Gameplay/bossAngry/")
+
 #sounds variable
 @onready var game_music = get_node("/root/Gameplay/GameMusic/")
 @onready var start_sound = get_node("/root/Gameplay/StartSound/")
@@ -84,8 +87,12 @@ func handle_button_pressed(choice):
 	# Record the scores
 	if result == "youWin":
 		Global.player_wins += 1
+		angry_boss_animation.visible = true
+		happy_boss_animation.visible = false
 	elif result == "youLose":
 		Global.computer_wins += 1
+		happy_boss_animation.visible = true
+		angry_boss_animation.visible = false
 	
 	#show animation
 	player_choice_indic.text = "[center]...[/center]"

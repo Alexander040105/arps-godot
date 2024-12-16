@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://bim2khteqjvpf"]
+[gd_scene load_steps=131 format=3 uid="uid://bim2khteqjvpf"]
 
 [ext_resource type="Texture2D" uid="uid://dlhq4rsitrkxn" path="res://backgroundd/7th Page UI (2).png" id="2_vsmoa"]
 [ext_resource type="AudioStream" uid="uid://bwetr60yitwkl" path="res://FINAL_MUSIC(BETA)/Start Button.mp3" id="3_l71ke"]
@@ -84,6 +84,12 @@
 [ext_resource type="Texture2D" uid="uid://d3x1cxeu6gvlw" path="res://hand-icons/boss animation/start-up/Lightning-boss.png" id="38_kf7ld"]
 [ext_resource type="Texture2D" uid="uid://blskmlk3ac3om" path="res://hand-icons/player-hand-animation/Gun-player.png" id="38_yxtvx"]
 [ext_resource type="Texture2D" uid="uid://f0qieskm6ydq" path="res://hand-icons/boss animation/start-up/Gun-boss.png" id="39_5ass8"]
+[ext_resource type="Texture2D" uid="uid://cwvnk6e3ik5ws" path="res://Boss-emotions/happy-frame1.png" id="41_b5sa0"]
+[ext_resource type="Texture2D" uid="uid://dj720pjbcsm3g" path="res://Boss-emotions/happy-frame2.png" id="42_6wawb"]
+[ext_resource type="Texture2D" uid="uid://0dqkg2j3mg3w" path="res://Boss-emotions/angry-frame1.png" id="43_0br5w"]
+[ext_resource type="Texture2D" uid="uid://2dmqnthrfpu8" path="res://Boss-emotions/angry-frame2.png" id="44_yqf8f"]
+[ext_resource type="Texture2D" uid="uid://bjbjxmkxkks58" path="res://Boss-emotions/angry-frame01.png" id="45_clp4q"]
+[ext_resource type="Texture2D" uid="uid://bscna8iv7ajji" path="res://Boss-emotions/angry-frame02.png" id="46_eh517"]
 [ext_resource type="FontFile" uid="uid://baeji5wb02tse" path="res://MultiTypePixel-Display.otf" id="59_8fodr"]
 [ext_resource type="AudioStream" uid="uid://dhg7eqe3iccq4" path="res://FINAL_MUSIC(BETA)/(2nd Boss) Density & Time - MAZE.mp3" id="81_73x62"]
 
@@ -124,6 +130,70 @@ animations = [{
 "loop": true,
 "name": &"boss_animation",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d86nx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_b5sa0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_b5sa0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_6wawb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_6wawb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_b5sa0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_6wawb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_b5sa0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_6wawb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3hfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_0br5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_0br5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_yqf8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_clp4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_clp4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_eh517")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_eh517")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_yqf8f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
 }]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yy175"]
@@ -2763,6 +2833,22 @@ sprite_frames = SubResource("SpriteFrames_l6xda")
 animation = &"boss_animation"
 autoplay = "boss_animation"
 frame_progress = 0.92094
+
+[node name="bossHappy" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(808, 100)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_d86nx")
+autoplay = "default"
+frame_progress = 0.95867
+
+[node name="bossAngry" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(808, 100)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_s3hfo")
+autoplay = "default"
+frame_progress = 0.645899
 
 [node name="bg1" type="Panel" parent="."]
 visible = false
